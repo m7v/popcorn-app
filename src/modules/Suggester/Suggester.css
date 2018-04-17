@@ -1,0 +1,72 @@
+@keyframes scrollBgGridLinks {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-550px);
+    }
+}
+
+.Suggester__background._inited {
+    display: none;
+}
+
+.Suggester__img {
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    background-image: url(./assets/background.jpg);
+    background-position: center center;
+    background-size: cover;
+    padding-bottom: 500px;
+    position: fixed;
+    animation: scrollBgGridLinks 50s linear;
+    animation-fill-mode: forwards;
+}
+.Suggester__cover {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+    background: rgba(0,0,0,.5);
+}
+
+.Suggester__main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.Suggester__search {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 40%;
+    z-index: 2;
+}
+
+.Suggester__search._submitted {
+    top: 0;
+    height: 40px;
+    padding-top: 5px;
+}
+
+.Suggester__preloader {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 0;
+}
+
+.Suggester__circular {
+    margin: 60px 0;
+}

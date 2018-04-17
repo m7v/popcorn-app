@@ -1,0 +1,17 @@
+.DeckInfo__links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.DeckInfo__legality {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #eee;
+}
+
+.DeckInfo__legalityName {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,22 @@
+.DoubleFacedCard__root div {
+    display: block;
+    outline: none;
+}
+
+.DoubleFacedCard__img {
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.DoubleFacedCard__root._default div,
+.DoubleFacedCard__img._default {
+    width: 223px;
+    height: 311px;
+}
+
+.DoubleFacedCard__root._oversize div,
+.DoubleFacedCard__img._oversize {
+    width: 312px;
+    height: 445px;
+}

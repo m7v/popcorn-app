@@ -1,0 +1,225 @@
+.Deck__deckCard {
+    background-color: #222 !important;
+    position: relative;
+    width: 290px;
+    height: 354px;
+    margin: 15px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 10px, rgba(0, 0, 0, 0.23) 0 3px 10px;
+}
+
+.Deck__deckCard._short {
+    height: 200px;
+}
+
+.Deck__deckHead {
+    width: 100%;
+    padding-top: 15px;
+    background-color: #fdfcf3;
+}
+
+.Deck__deckShortHead {
+    width: 100%;
+    padding-top: 15px;
+    background-color: #222;
+}
+
+.Deck__deckShortHead .Deck__cardHeadlinerTop {
+    background-color: #222;
+}
+
+.Deck__deckShortHead .Deck__cardHeadlinerBottom {
+    background-color: #fdfcf3;
+}
+
+.Deck_link {
+    text-decoration: none;
+}
+
+.Deck__title {
+    font-family: "Beleren Bold";
+    font-size: 23px;
+    display: block;
+    color: #222;
+    cursor: pointer;
+}
+
+.Deck__shortTitle {
+    font-family: "Beleren Bold";
+    font-size: 23px;
+    display: block;
+    color: #eee;
+    cursor: pointer;
+}
+
+.Deck__title:hover {
+    color: #5297E0;
+    transition: all 0.45s ease-in-out;
+}
+
+.Deck__avatar {
+    position: relative;
+    height: 100px;
+}
+
+.Deck__cardHeadlinerTop {
+    background-color: #fdfcf3;
+    height: 50px;
+}
+
+.Deck__cardHeadlinerWrapper {
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    width: 80px;
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+    filter: grayscale(.6);
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+.Deck__cardHeadlinerWrapper:hover {
+    filter: grayscale(.1);
+}
+
+.Deck__cardHeadliner {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    display: block;
+    background-size: 140px;
+    background-position: -34px -22px;
+}
+
+.Deck__cardHeadlinerBottom {
+    height: 50px;
+    background-color: #222;
+}
+
+.Deck__cardManaPool {
+    margin: 0 auto;
+}
+
+.Deck__manaWrapper {
+    margin: 5px;
+}
+
+.Deck__composition {
+    display: none;
+    flex-wrap: wrap-reverse;
+}
+
+.Deck__compositionWrapper {
+
+}
+
+.Deck__cardMana {
+    padding: 0;
+    margin: 0;
+}
+
+.Deck__cardManaNumber {
+    color: #e2e2e2;
+    font: 14px Helvetica;
+}
+
+.Deck__manaBar {
+    top: 50px;
+    right: 0;
+    padding: 10px 0;
+    white-space: nowrap;
+    vertical-align: top;
+    background-color: #222;
+}
+
+.Deck__mana {
+    display: inline-block;
+    margin: 1px;
+    height: 25px;
+}
+
+.Deck__mana .ms {
+    color: #222;
+    font-size: 13px;
+    line-height: 24px;
+}
+
+.DeckType {
+    width: 15px;
+    height: 15px;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #e2e2e2;
+}
+
+.DeckMana {
+    margin: 3px;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: #222;
+    color: #f9f9f9;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    transition: all 0.25s ease-in-out;
+}
+
+.short-mana {
+    margin: 3px;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: #222;
+    color: #f9f9f9;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    transition: all 0.25s ease-in-out;
+}
+
+.DeckMana:hover {
+    background-color: #f9f9f9;
+    color: #222;
+}
+
+.DeckMana-r {
+    background-color: #e5a081;
+}
+
+.DeckMana-g {
+    background-color: #a3d1a3;
+}
+
+.DeckMana-b {
+    background-color: #919191;
+}
+
+.DeckMana-u {
+    background-color: #b2e6fb;
+}
+
+.DeckMana-w {
+    background-color: #FFFFDA;
+}
+
+.Deck__deckShortHead .short-mana-r {
+    color: #e5a081;
+}
+
+.Deck__deckShortHead .short-mana-g {
+    color: #a3d1a3;
+}
+
+.Deck__deckShortHead .short-mana-b {
+    color: #919191;
+}
+
+.Deck__deckShortHead .short-mana-u {
+    color: #b2e6fb;
+}
+
+.Deck__deckShortHead .short-mana-w {
+    color: #FFFFDA;
+}
