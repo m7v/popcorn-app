@@ -1,8 +1,8 @@
 {
-  "name": "popcorn",
+  "name": "popcorn-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://m7v.github.io/popcorn",
+  "homepage": "https://m7v.github.io/popcorn-app",
   "dependencies": {
     "axios": "^0.16.1",
     "chart.js": "^1.1.1",
