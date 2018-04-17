@@ -1,4 +1,4 @@
-.CardInfo__root {
+.LocationInfo__root {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -6,37 +6,37 @@
     justify-content: center;
 }
 
-.CardInfo__root._mobile {
+.LocationInfo__root._mobile {
     align-items: initial;
 }
 
-.CardInfo__back {
+.LocationInfo__back {
     position: absolute;
     top: 20px;
     left: 5px;
     z-index: 1;
 }
 
-.CardInfo__search {
+.LocationInfo__search {
     position: absolute;
     top: 20px;
     right: 20px;
     z-index: 1;
 }
 
-.CardInfo__background {
+.LocationInfo__background {
     position: fixed;
     z-index: -1;
 }
 
-.CardInfo__backgroundComposition {
+.LocationInfo__backgroundComposition {
     width: 100vw;
     height: 100vh;
     background-size: cover;
     display: flex;
 }
 
-.CardInfo__backgroundImage {
+.LocationInfo__backgroundImage {
     width: 100vw;
     height: 100vh;
     background-size: cover;
@@ -46,7 +46,7 @@
     position: absolute;
 }
 
-.CardInfo__backgroundTrapezoid {
+.LocationInfo__backgroundTrapezoid {
     height: 0;
     width: 100vw;
     border-bottom: 103vh solid #242424;
@@ -55,7 +55,7 @@
     background: rgba(33, 33, 33, .3)
 }
 
-.CardInfo__preloader {
+.LocationInfo__preloader {
     width: 100%;
     height: 100%;
     top: 0;
@@ -68,11 +68,11 @@
     z-index: 0;
 }
 
-.CardInfo__circular {
+.LocationInfo__circular {
     margin: 60px 0;
 }
 
-.CardInfo__container {
+.LocationInfo__container {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -80,21 +80,21 @@
     max-width: 990px;
 }
 
-.CardInfo__fullInfo {
+.LocationInfo__fullInfo {
     padding: 15px;
     position: relative;
 }
 
-.CardInfo__icons {
+.LocationInfo__icons {
     display: flex;
     justify-content: flex-end;
 }
 
-.CardInfo__card {
+.LocationInfo__card {
     padding: 15px;
 }
 
-.CardInfo__artist {
+.LocationInfo__artist {
     padding: 8px;
     color: #888;
     font-size: 14px;
@@ -106,18 +106,18 @@
     cursor: pointer;
 }
 
-.CardInfo__artistName {
+.LocationInfo__artistName {
     color: #eee;
     text-transform: none;
 }
 
-.CardInfo__head {
+.LocationInfo__head {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
 }
 
-.CardInfo__title {
+.LocationInfo__title {
     min-width: 300px;
     min-height: 50px;
     text-align: left;
@@ -128,12 +128,12 @@
     color: #eee;
 }
 
-.CardInfo__cardBlock {
+.LocationInfo__cardBlock {
     padding-top: 15px;
     display: flex;
 }
 
-.CardInfo__details {
+.LocationInfo__details {
     max-width: 250px;
     min-width: 250px;
     min-height: 130px;
@@ -141,7 +141,7 @@
     flex-direction: column;
 }
 
-.CardInfo__detailTitle {
+.LocationInfo__detailTitle {
     font-size: 12px;
     font-weight: bold;
     line-height: 20px;
@@ -150,24 +150,24 @@
     text-align: left;
 }
 
-.CardInfo__setName {
+.LocationInfo__setName {
     font-size: 14px;
     color: #eee;
     text-decoration: none;
     cursor: pointer;
 }
 
-.CardInfo__setIcon {
+.LocationInfo__setIcon {
     display: inline-block;
     padding: 0 3px 5px;
 }
 
-.CardInfo__legalities {
+.LocationInfo__legalities {
     text-align: left;
     padding-bottom: 12px;
 }
 
-.CardInfo__legality {
+.LocationInfo__legality {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -176,13 +176,13 @@
     color: #eee;
 }
 
-.CardInfo__legalityName {
+.LocationInfo__legalityName {
     padding: 2px 0;
     display: flex;
     justify-content: space-between;
 }
 
-.CardInfo__textSymbols.ms {
+.LocationInfo__textSymbols.ms {
     border-radius: 50%;
     margin: 0 2px;
     background-color: #9c9c9c;
@@ -190,57 +190,57 @@
     font-size: 10px;
 }
 
-.CardInfo__textSymbols-r {
+.LocationInfo__textSymbols-r {
     background-color: #e5a081 !important;
 }
 
-.CardInfo__textSymbols-g {
+.LocationInfo__textSymbols-g {
     background-color: #a3d1a3 !important;
 }
 
-.CardInfo__textSymbols-b {
+.LocationInfo__textSymbols-b {
     background-color: #919191 !important;
 }
 
-.CardInfo__textSymbols-u {
+.LocationInfo__textSymbols-u {
     background-color: #b2e6fb !important;
 }
 
-.CardInfo__textSymbols-w {
+.LocationInfo__textSymbols-w {
     background-color: #FFFFDA !important;
 }
 
-.CardInfo__textBlock {
+.LocationInfo__textBlock {
     padding: 0 15px;
 }
 
-.CardInfo__type {
+.LocationInfo__type {
     font-size: 14px;
     color: #eee;
     text-align: left;
     padding-bottom: 12px;
 }
 
-.CardInfo__manaCost {
+.LocationInfo__manaCost {
     font-size: 14px;
     color: #eee;
     text-align: left;
     padding-bottom: 12px;
 }
 
-.CardInfo__set {
+.LocationInfo__set {
     font-size: 12px;
     color: #eee;
     text-align: left;
     padding-bottom: 12px;
 }
 
-.CardInfo__printings {
+.LocationInfo__printings {
     text-align: left;
     padding-bottom: 12px;
 }
 
-.CardInfo__textInfo {
+.LocationInfo__textInfo {
     max-width: 300px;
     min-width: 300px;
     min-height: 150px;
@@ -252,7 +252,7 @@
     color: #eee;
 }
 
-.CardInfo__textFlavor {
+.LocationInfo__textFlavor {
     font-size: 12px;
     font-style: italic;
     color: #bbb;

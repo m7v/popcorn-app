@@ -2,9 +2,10 @@ import './NewsList.css';
 import 'keyrune/css/keyrune.min.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import Img from 'react-image';
 import { bool, arrayOf, shape, func } from 'prop-types';
 import map from 'lodash/map';
+import Card, { CardContent, CardMedia } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
 import Loader from '../../components/Loader';
 import MetaHelmet from '../../components/MetaHelmet';
 import stateToProps from './connect/stateToProps';
@@ -31,19 +32,20 @@ class NewsList extends React.PureComponent {
     };
 
     renderNews = () => map(this.props.news, (oneNews, index) => (
-        <div key={index} className="NewsList__block">
-            <div className="NewsList__setNameWrapper">
-                <div className="NewsList__blockTitle">
-                    {oneNews.title}
-                </div>
-                <Img
+        <div key={index} className="NewsList__result">
+            <Card>
+                <CardMedia
                     className="NewsList__blockImage"
-                    src={oneNews.image}
+                    image={oneNews.image}
+                    title="Contemplative Reptile"
                 />
-                <div className="NewsList__blockDescription">
-                    {oneNews.text}
-                </div>
-            </div>
+                <CardContent>
+                    <Typography type="headline" component="h2">
+                        {oneNews.title}
+                    </Typography>
+                    <Typography component="p" align="left">{oneNews.text}</Typography>
+                </CardContent>
+            </Card>
         </div>
     ));
 
@@ -65,7 +67,7 @@ class NewsList extends React.PureComponent {
                         <ErrorPage />
                     }
                     {!loading && !error &&
-                        <div className="NewsList__setList">
+                        <div className="NewsList__results">
                             { this.renderNews() }
                         </div>
                     }

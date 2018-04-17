@@ -9,8 +9,8 @@ import Paper from 'material-ui/Paper';
 // import IconViewCarousel from 'material-ui-icons/ViewCarousel';
 import IconSearch from 'material-ui-icons/Search';
 // import IconAddBox from 'material-ui-icons/AddBox';
-import IconFavorite from 'material-ui-icons/Favorite';
-import IconBrowse from 'material-ui-icons/Explore';
+import IconFavorite from 'material-ui-icons/Notifications';
+import IconBrowse from 'material-ui-icons/Inbox';
 
 const browseIcon = <IconBrowse />;
 // const AddIcon = <IconAddBox />;

@@ -2,10 +2,11 @@ import './Timetable.css';
 import 'keyrune/css/keyrune.min.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import Img from 'react-image';
 import { bool, arrayOf, shape, func } from 'prop-types';
 import map from 'lodash/map';
 import Link from 'react-router-dom/Link';
+import Card, { CardContent, CardMedia } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
 import Loader from '../../components/Loader';
 import MetaHelmet from '../../components/MetaHelmet';
 import stateToProps from './connect/stateToProps';
@@ -32,25 +33,27 @@ class Timetable extends React.PureComponent {
     };
 
     renderSchedule = () => map(this.props.timetable, (timetable, index) => (
-        <div key={index} className="Timetable__block">
+        <div key={index} className="Timetable__result">
             <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
-                <div className="Timetable__setNameWrapper">
-                    <div className="Timetable__blockTitle">
-                        {timetable.title}
-                    </div>
-                    <Img
+                <Card>
+                    <CardMedia
                         className="Timetable__blockImage"
-                        src={timetable.imageUrl}
+                        image={timetable.imageUrl}
                     />
-                    <div className="Timetable__blockPeriod">
-                        <span>{timetable.period.startTime}</span>-<span>{timetable.period.endTime}</span>
-                    </div>
-                    {false &&
-                    <div className="Timetable__blockDescription">
-                        {timetable.description}
-                    </div>
-                    }
-                </div>
+                    <CardContent>
+                        <Typography paragraph type="headline" component="h2">
+                            {timetable.title}
+                        </Typography>
+                        <Typography paragraph>
+                            <span>{timetable.period.startTime}</span>-<span>{timetable.period.endTime}</span>
+                        </Typography>
+                        {/*<Typography paragraph component="p" align="left">*/}
+                            {/*<div className="Timetable__blockDescription">*/}
+                                {/*{timetable.description}*/}
+                            {/*</div>*/}
+                        {/*</Typography>*/}
+                    </CardContent>
+                </Card>
             </Link>
         </div>
     ));
@@ -73,7 +76,7 @@ class Timetable extends React.PureComponent {
                         <ErrorPage />
                     }
                     {!loading && !error &&
-                        <div className="Timetable__setList">
+                        <div className="Timetable__results">
                             { this.renderSchedule() }
                         </div>
                     }
