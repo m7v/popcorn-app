@@ -98,6 +98,7 @@ class Timetable extends React.PureComponent {
                     {!loading && !error &&
                         <div className="Timetable__results">
                             { this.renderSchedule() }
+                            { this.renderSchedule() }
                         </div>
                     }
                 </div>

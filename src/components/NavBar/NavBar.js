@@ -7,7 +7,7 @@ import findIndex from 'lodash/findIndex';
 import Paper from 'material-ui/Paper';
 // import IconViewModule from 'material-ui-icons/ViewModule';
 // import IconViewCarousel from 'material-ui-icons/ViewCarousel';
-import IconSearch from 'material-ui-icons/Search';
+import IconSearch from 'material-ui-icons/Map';
 // import IconAddBox from 'material-ui-icons/AddBox';
 import IconFavorite from 'material-ui-icons/Notifications';
 import IconBrowse from 'material-ui-icons/Inbox';

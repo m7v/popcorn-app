@@ -77,7 +77,22 @@
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: nowrap;
-    max-width: 990px;
+    max-width: 600px;
+    margin: 10px 0 50px;
+    background-color: #424242;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.LocationInfo__container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #696969;
+}
+
+.LocationInfo__container::-webkit-scrollbar {
+    width: 10px;
+    background-color: #696969;
 }
 
 .LocationInfo__fullInfo {
@@ -128,6 +143,10 @@
     color: #eee;
 }
 
+.LocationInfo__card {
+    background-color: #424242;
+}
+
 .LocationInfo__blockImage {
     width: 100%;
     height: 200px;
@@ -154,6 +173,16 @@
 
 .LocationInfo__chip._cyber {
     background-color: #03aac3;
+}
+
+.LocationInfo__eventList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.LocationInfo__event {
+
 }
 
 .LocationInfo__cardBlock {

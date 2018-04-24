@@ -67,7 +67,7 @@ class LocationInfo extends React.PureComponent {
                 {!loading &&
                     <div className="LocationInfo__container">
                         <MetaHelmet type={'location'} location={location} />
-                        <Card>
+                        <div className="LocationInfo__card">
                             {location.image &&
                                 <CardMedia
                                     className="LocationInfo__blockImage"
@@ -75,7 +75,7 @@ class LocationInfo extends React.PureComponent {
                                     title="Contemplative Reptile"
                                 />
                             }
-                            <CardContent>
+                            <div>
                                 <Typography type="headline" component="h2">
                                     {location.title}
                                 </Typography>
@@ -98,7 +98,45 @@ class LocationInfo extends React.PureComponent {
                                         />
                                     ))}
                                 </div>
-                                <List>
+                                <List className="LocationInfo__eventList">
+                                    {map(location.events, (event) => (
+                                        <ListItem key={event.id} className="LocationInfo__event">
+                                            <ListItemText
+                                                primary={event.title}
+                                                secondary={this.getDate(event.period)}
+                                            />
+                                        </ListItem>
+                                    ))}
+                                    {map(location.events, (event) => {
+                                        return (
+                                            <ListItem key={event.id} >
+                                                <ListItemText
+                                                    primary={event.title}
+                                                    secondary={this.getDate(event.period)}
+                                                />
+                                            </ListItem>
+                                        );
+                                    })}
+                                    {map(location.events, (event) => {
+                                        return (
+                                            <ListItem key={event.id} >
+                                                <ListItemText
+                                                    primary={event.title}
+                                                    secondary={this.getDate(event.period)}
+                                                />
+                                            </ListItem>
+                                        );
+                                    })}
+                                    {map(location.events, (event) => {
+                                        return (
+                                            <ListItem key={event.id} >
+                                                <ListItemText
+                                                    primary={event.title}
+                                                    secondary={this.getDate(event.period)}
+                                                />
+                                            </ListItem>
+                                        );
+                                    })}
                                     {map(location.events, (event) => {
                                         return (
                                             <ListItem key={event.id} >
@@ -110,8 +148,8 @@ class LocationInfo extends React.PureComponent {
                                         );
                                     })}
                                 </List>
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </div>
                     </div>
                 }
             </div>

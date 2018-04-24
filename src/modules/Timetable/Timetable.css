@@ -26,8 +26,8 @@
 }
 
 .Timetable__result {
-    max-width: 345px;
-    padding: 10px;
+    width: 300px;
+    padding: 10px 0;
     user-select: none;
 }
 
@@ -145,8 +145,7 @@
 
 .Timetable__set {
     color: #f58d14;
-    padding: 15px;
-    margin: 10px 0;
+    padding: 15px 0;
     display: flex;
     justify-content: space-between;
     text-decoration: none;
