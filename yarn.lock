@@ -3744,6 +3744,10 @@ iltorb@^1.0.9:
     node-gyp "^3.6.2"
     prebuild-install "^2.3.0"
 
+image-map@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/image-map/-/image-map-1.0.8.tgz#1be198b971825aeb500d74d5df2c2490a09b6795"
+
 immutable-ops@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/immutable-ops/-/immutable-ops-0.5.2.tgz#3803d9bc65821bf4aaedf2f3542ec8714b73646a"
