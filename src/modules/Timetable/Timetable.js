@@ -32,31 +32,35 @@ class Timetable extends React.PureComponent {
         });
     };
 
-    renderSchedule = () => map(this.props.timetable, (timetable, index) => (
-        <div key={index} className="Timetable__result">
-            <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
-                <Card>
-                    <CardMedia
-                        className="Timetable__blockImage"
-                        image={timetable.imageUrl}
-                    />
-                    <CardContent>
-                        <Typography paragraph type="headline" component="h2">
-                            {timetable.title}
-                        </Typography>
-                        <Typography paragraph>
-                            <span>{timetable.period.startTime}</span>-<span>{timetable.period.endTime}</span>
-                        </Typography>
-                        {/*<Typography paragraph component="p" align="left">*/}
+    renderSchedule = () => map(this.props.timetable, (timetable, index) => {
+        console.log(timetable);
+
+        return (
+            <div key={index} className="Timetable__result">
+                <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
+                    <Card>
+                        <CardMedia
+                            className="Timetable__blockImage"
+                            image={timetable.imageUrl}
+                        />
+                        <CardContent>
+                            <Typography paragraph type="headline" component="h2">
+                                {timetable.title}
+                            </Typography>
+                            <Typography paragraph>
+                                <span>{timetable.period.startTime}</span>-<span>{timetable.period.endTime}</span>
+                            </Typography>
+                            {/*<Typography paragraph component="p" align="left">*/}
                             {/*<div className="Timetable__blockDescription">*/}
-                                {/*{timetable.description}*/}
+                            {/*{timetable.description}*/}
                             {/*</div>*/}
-                        {/*</Typography>*/}
-                    </CardContent>
-                </Card>
-            </Link>
-        </div>
-    ));
+                            {/*</Typography>*/}
+                        </CardContent>
+                    </Card>
+                </Link>
+            </div>
+        );
+    });
 
     render() {
         const { loading, error } = this.props;

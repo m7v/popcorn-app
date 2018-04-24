@@ -259,8 +259,7 @@ export const getSuggestions = (query) => {
 };
 
 export const getLocationById = (id) =>
-    // popcornInstance.get(`location/${id}`)
-    popcornInstance.get('location')
+    popcornInstance.get(`location/${id}`)
         .then(response => response.data)
         .catch(() => {
             return JSON.parse('{"id": 1,"title": "Какая-то локация","timetable":\n' +

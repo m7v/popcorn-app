@@ -74,14 +74,17 @@ class LocationInfo extends React.PureComponent {
                                 <Typography type="headline" component="h2">
                                     {location.title}
                                 </Typography>
+                                <Typography type="p" align="center">
+                                    {location.description}
+                                </Typography>
                                 <Typography component="p" align="left">
                                     <List>
-                                        {map(location.timetable, (timetable) => {
+                                        {map(location.events, (event) => {
                                             return (
                                                 <ListItem>
                                                     <ListItemText
-                                                        primary={timetable.title}
-                                                        secondary={`${timetable.period.startTime}-${timetable.period.endTime}`}
+                                                        primary={event.title}
+                                                        secondary={`${event.period.startTime}-${event.period.endTime}`}
                                                     />
                                                 </ListItem>
                                             );

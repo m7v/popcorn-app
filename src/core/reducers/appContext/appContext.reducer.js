@@ -481,8 +481,8 @@ function appLocationAddLocation(state, location) {
             ...state.LocationInfo,
             data: {
                 ...state.LocationInfo.data,
-                [location.id]: {
-                    ...state.LocationInfo.data[location.id],
+                [location.locationID]: {
+                    ...state.LocationInfo.data[location.locationID],
                     ...location
                 }
             }
