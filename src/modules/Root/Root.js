@@ -16,6 +16,7 @@ import Loader from '../../components/Loader';
 const Timetable = (props) => <Async load={import('../Timetable/container')} componentProps={props} />;
 const Suggester = (props) => <Async load={import('../Suggester/container')} componentProps={props} />;
 const CardInfo = (props) => <Async load={import('../CardInfo/container')} componentProps={props} />;
+const InteractiveMap = (props) => <Async load={import('../InteractiveMap/container')} componentProps={props} />;
 const LocationInfo = (props) => <Async load={import('../LocationInfo/container')} componentProps={props} />;
 const NewsList = (props) => <Async load={import('../NewsList/container')} componentProps={props} />;
 const CardSet = (props) => <Async load={import('../CardSet/container')} componentProps={props} />;
@@ -46,6 +47,16 @@ class Root extends React.Component {
                     <Switch>
                         <Route
                             exact
+                            path="/"
+                            component={InteractiveMap}
+                        />
+                        <Route
+                            exact
+                            path="/search"
+                            component={Suggester}
+                        />
+                        <Route
+                            exact
                             path="/search"
                             component={Suggester}
                         />
@@ -57,7 +68,9 @@ class Root extends React.Component {
                         <Route
                             exact
                             path="/location/:id"
-                            component={({match, history}) => <LocationInfo locationId={match.params.id} history={history} />}
+                            component={
+                                ({match, history}) => <LocationInfo locationId={match.params.id} history={history} />
+                            }
                         />
                         <Route
                             exact
