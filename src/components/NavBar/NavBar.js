@@ -21,9 +21,9 @@ const searchIcon = <IconSearch />;
 
 const navbarConfig = [
     {
-        path: '/search',
+        path: '/map',
         icon: searchIcon,
-        label: 'Search',
+        label: 'Map',
     },
     // {
     //     path: '/browse',

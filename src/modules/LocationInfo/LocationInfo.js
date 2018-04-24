@@ -2,11 +2,13 @@ import './LocationInfo.css';
 import './LocationInfoMobile.css';
 import React from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import { bool, string, func, shape } from 'prop-types';
 import map from 'lodash/map';
 import classNames from 'classnames';
 import Card, { CardContent, CardMedia } from 'material-ui/Card';
+import Chip from 'material-ui/Chip';
 import Typography from 'material-ui/Typography';
 import { dispatchToProps } from './connect/dispatchToProps';
 import { stateToProps } from './connect/stateToProps';
@@ -30,9 +32,10 @@ class LocationInfo extends React.PureComponent {
         }
     }
 
-    handleSearchCardByKeyPress = (searchedCard) => {
-        this.props.setQueryString(searchedCard);
-        this.props.history.push(`/search?q=${searchedCard}`);
+    getDate = (period) => {
+        const startTime = moment(period.startTime * 1000).format('DD MMM h:mm');
+        const endTime = moment(period.endTime * 1000).format('DD MMM h:mm');
+        return `${startTime} - ${endTime}`;
     };
 
     render() {
@@ -65,32 +68,48 @@ class LocationInfo extends React.PureComponent {
                     <div className="LocationInfo__container">
                         <MetaHelmet type={'location'} location={location} />
                         <Card>
-                            <CardMedia
-                                className="LocationInfo__blockImage"
-                                image={location.image}
-                                title="Contemplative Reptile"
-                            />
+                            {location.image &&
+                                <CardMedia
+                                    className="LocationInfo__blockImage"
+                                    image={location.image}
+                                    title="Contemplative Reptile"
+                                />
+                            }
                             <CardContent>
                                 <Typography type="headline" component="h2">
                                     {location.title}
                                 </Typography>
-                                <Typography type="p" align="center">
+                                <Typography component="p" align="center">
                                     {location.description}
                                 </Typography>
-                                <Typography component="p" align="left">
-                                    <List>
-                                        {map(location.events, (event) => {
-                                            return (
-                                                <ListItem>
-                                                    <ListItemText
-                                                        primary={event.title}
-                                                        secondary={`${event.period.startTime}-${event.period.endTime}`}
-                                                    />
-                                                </ListItem>
-                                            );
-                                        })}
-                                    </List>
-                                </Typography>
+                                <div className="LocationInfo__chips">
+                                    {['cyber', 'geek', 'show'].map((tag, id) => (
+                                        <Chip
+                                            key={id}
+                                            label={tag.toUpperCase()}
+                                            className={
+                                                classNames({
+                                                    'LocationInfo__chip': true,
+                                                    '_cyber': tag === 'cyber',
+                                                    '_geek': tag === 'geek',
+                                                    '_show': tag === 'show',
+                                                })
+                                            }
+                                        />
+                                    ))}
+                                </div>
+                                <List>
+                                    {map(location.events, (event) => {
+                                        return (
+                                            <ListItem key={event.id} >
+                                                <ListItemText
+                                                    primary={event.title}
+                                                    secondary={this.getDate(event.period)}
+                                                />
+                                            </ListItem>
+                                        );
+                                    })}
+                                </List>
                             </CardContent>
                         </Card>
                     </div>

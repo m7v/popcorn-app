@@ -1,5 +1,12 @@
 .InteractiveMap__root {
+    height: calc(100vh - 50px);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.InteractiveMap__map {
+    max-width: 900px;
+    min-width: 320px;
+    width: 100%;
 }

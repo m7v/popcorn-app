@@ -52,18 +52,8 @@ class Root extends React.Component {
                         />
                         <Route
                             exact
-                            path="/search"
-                            component={Suggester}
-                        />
-                        <Route
-                            exact
-                            path="/search"
-                            component={Suggester}
-                        />
-                        <Route
-                            exact
-                            path="/cards/:id"
-                            component={({match, history}) => <CardInfo cardId={match.params.id} history={history} />}
+                            path="/map"
+                            component={InteractiveMap}
                         />
                         <Route
                             exact
@@ -79,18 +69,8 @@ class Root extends React.Component {
                         />
                         <Route
                             exact
-                            path="/browse"
-                            component={NewsList}
-                        />
-                        <Route
-                            exact
                             path="/news"
                             component={NewsList}
-                        />
-                        <Route
-                            exact
-                            path="/browse/:setId"
-                            component={({match, history}) => <CardSet code={match.params.setId} history={history} />}
                         />
                     </Switch>
                 </section>

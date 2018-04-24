@@ -4,8 +4,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bool, arrayOf, shape, func } from 'prop-types';
 import map from 'lodash/map';
+import moment from 'moment';
+import classNames from 'classnames';
 import Link from 'react-router-dom/Link';
 import Card, { CardContent, CardMedia } from 'material-ui/Card';
+import Chip from 'material-ui/Chip';
 import Typography from 'material-ui/Typography';
 import Loader from '../../components/Loader';
 import MetaHelmet from '../../components/MetaHelmet';
@@ -23,38 +26,51 @@ class Timetable extends React.PureComponent {
         this.props.getTimetable();
     }
 
-    openBlock = (title) => {
-        this.setState({
-            blocks: {
-                ...this.state.blocks,
-                [title]: !this.state.blocks[title]
-            }
-        });
+    getDate = (period) => {
+        const startTime = moment(period.startTime * 1000).format('DD MMM h:mm');
+        const endTime = moment(period.endTime * 1000).format('DD MMM h:mm');
+        return `${startTime} - ${endTime}`;
     };
 
     renderSchedule = () => map(this.props.timetable, (timetable, index) => {
-        console.log(timetable);
-
         return (
             <div key={index} className="Timetable__result">
                 <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
                     <Card>
-                        <CardMedia
-                            className="Timetable__blockImage"
-                            image={timetable.imageUrl}
-                        />
+                        {timetable.image &&
+                            <CardMedia
+                                className="Timetable__blockImage"
+                                image={timetable.image}
+                            />
+                        }
                         <CardContent>
                             <Typography paragraph type="headline" component="h2">
                                 {timetable.title}
                             </Typography>
                             <Typography paragraph>
-                                <span>{timetable.period.startTime}</span>-<span>{timetable.period.endTime}</span>
+                                {this.getDate(timetable.period)}
                             </Typography>
-                            {/*<Typography paragraph component="p" align="left">*/}
-                            {/*<div className="Timetable__blockDescription">*/}
-                            {/*{timetable.description}*/}
-                            {/*</div>*/}
-                            {/*</Typography>*/}
+                            <Typography paragraph component="p" align="left">
+                                <div className="Timetable__blockDescription">
+                                    {timetable.description}
+                                </div>
+                            </Typography>
+                            <div className="Timetable__chips">
+                                {['cyber', 'geek', 'show'].map((tag, id) => (
+                                    <Chip
+                                        key={id}
+                                        label={tag.toUpperCase()}
+                                        className={
+                                            classNames({
+                                                'Timetable__chip': true,
+                                                '_cyber': tag === 'cyber',
+                                                '_geek': tag === 'geek',
+                                                '_show': tag === 'show',
+                                            })
+                                        }
+                                    />
+                                ))}
+                            </div>
                         </CardContent>
                     </Card>
                 </Link>
