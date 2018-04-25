@@ -1,31 +1,138 @@
 import './InteractiveMap.css';
-import React from 'react';
 import $ from 'jquery';
-import './lib/map';
+import React from 'react';
 import { shape } from 'prop-types';
+import './lib/map';
 import withRouter from 'react-router-dom/withRouter';
 
 class InteractiveMap extends React.Component {
     componentWillMount() {
         $(document).ready(() => {
-            $('#sampleShapes').ImageMapResize({ origImageWidth: '500' });
+            $('#sampleShapes').ImageMapResize({ origImageWidth: '549' });
         });
     }
 
-    URL = 'https://c1.staticflickr.com/5/4052/4503898393_303cfbc9fd_b.jpg';
+    URL = 'https://sun1-2.userapi.com/c840739/v840739512/76c2b/jWOWqVbjHEw.jpg';
+    // URL = mapSkeleton;
+
+    // areas = [
+    //     {
+    //         alt: 'Фудкорт',
+    //         title: 'Фудкорт',
+    //         path: '',
+    //         coords: [ 378, 48, 688, 46, 869, 226, 819, 263, 824, 333, 379, 333 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'Overwatch',
+    //         title: 'Overwatch',
+    //         path: '',
+    //         coords: [ 91, 1056, 93, 1127, 313, 1123, 312, 1059 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'Hearthstone',
+    //         title: 'Hearthstone',
+    //         path: '',
+    //         coords: [ 95, 1026, 135, 1062, 211, 988, 167, 946 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'Зона VR Sky Arena',
+    //         title: 'Зона VR Sky Arena',
+    //         path: '',
+    //         coords: [ 114, 856, 113, 928, 182, 931, 184, 859 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'Зона PS4 от СФКС',
+    //         title: 'Зона PS4 от СФКС',
+    //         path: '',
+    //         coords: [ 93, 785, 167, 784, 165, 854, 93, 859 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'Зона Fortine',
+    //         title: 'Зона Fortine',
+    //         path: '',
+    //         coords: [ 377, 702, 664, 729 ],
+    //         shape: 'rect',
+    //     },
+    //     {
+    //         alt: 'Зона VR от е2е4',
+    //         title: 'Зона VR от е2е4',
+    //         path: '',
+    //         coords: [ 666, 693, 746, 765 ],
+    //         shape: 'rect',
+    //     },
+    //     {
+    //         alt: 'Главная сцена',
+    //         title: 'Главная сцена',
+    //         path: '',
+    //         coords: [ 342, 607, 536, 602, 535, 549, 588, 548, 589, 600, 783, 600, 783, 691, 342, 695 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'Аллея Авторов',
+    //         title: 'Аллея Авторов',
+    //         path: '',
+    //         coords: [ 368, 1364, 523, 1372, 521, 1324, 746, 1326, 747, 1446, 663, 1536, 660, 1787, 462, 1792, 458, 1541, 368, 1451 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'Варгеймы',
+    //         title: 'Варгеймы',
+    //         path: '',
+    //         coords: [ 750, 1328, 1019, 1323, 1022, 1515, 750, 1517 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'Настольные Ролевые Игры',
+    //         title: 'Настольные Ролевые Игры',
+    //         path: '',
+    //         coords: [ 756, 1520, 1023, 1756 ],
+    //         shape: 'rect',
+    //     },
+    //     {
+    //         alt: 'Настольные игры',
+    //         title: 'Настольные игры',
+    //         path: '',
+    //         coords: [ 747, 1451, 664, 1537, 659, 1794, 839, 1977, 1021, 1973, 1022, 1757, 750, 1759 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'VIP-лаунж',
+    //         title: 'VIP-лаунж',
+    //         path: '',
+    //         coords: [ 95, 1133, 144, 1131, 367, 1346, 367, 1398, 95, 1399 ],
+    //         shape: 'poly',
+    //     },
+    //     {
+    //         alt: 'Шоукейсы',
+    //         title: 'Шоукейсы',
+    //         path: '',
+    //         coords: [ 153, 1131, 371, 1133, 370, 1344 ],
+    //         shape: 'poly',
+    //     },
+    // ];
+
     areas = [
         {
-            id: '1', path: 'location/1', title: '1', shape: 'poly', coords: [25, 33, 27, 300, 128, 240, 128, 94]
+            id: '1',
+            alt: 'Фудкорт',
+            title: 'Фудкорт',
+            path: '',
+            coords: [ 381, 338, 171, 299 ],
+            shape: 'rect',
         },
         {
-            id: '2', path: 'location/1', title: '2', shape: 'poly', coords: [219, 118, 220, 210, 283, 210, 284, 119]
+            id: '2',
+            alt: 'Overwatch',
+            title: 'Overwatch',
+            path: '',
+            coords: [153,550,45,516],
+            shape: 'rect',
         },
-        {
-            id: '3', path: 'location/1', title: '3', shape: 'poly', coords: [381, 241, 383, 94, 462, 53, 457, 282]
-        },
-        {
-            id: '4', path: 'location/1', title: '4', shape: 'poly', coords: [245, 285, 290, 285, 274, 239, 249, 238]
-        }
     ];
 
     handleClick = (area) => {
@@ -37,25 +144,27 @@ class InteractiveMap extends React.Component {
     render() {
         return (
             <div className="InteractiveMap__root">
-                <img
-                    id="sampleShapes"
-                    src={this.URL}
-                    alt="Image Map Sample"
-                    className="InteractiveMap__map"
-                    useMap="#sampleShapesMap"
-                />
-                <map name="sampleShapesMap">
-                    {this.areas.map(area => (
-                        <area
-                            key={area.id}
-                            shape={area.shape}
-                            alt={area.alt}
-                            title={area.title}
-                            coords={area.coords}
-                            onClick={() => this.handleClick(area)}
-                        />
-                    ))}
-                </map>
+                <div className="InteractiveMap__container">
+                    <img
+                        id="sampleShapes"
+                        src={this.URL}
+                        alt="Image Map Sample"
+                        className="InteractiveMap__map"
+                        useMap="#sampleShapesMap"
+                    />
+                    <map name="sampleShapesMap">
+                        {this.areas.map(area => (
+                            <area
+                                key={area.id}
+                                shape={area.shape}
+                                alt={area.alt}
+                                title={area.title}
+                                coords={area.coords}
+                                onClick={() => this.handleClick(area)}
+                            />
+                        ))}
+                    </map>
+                </div>
             </div>
         );
     }

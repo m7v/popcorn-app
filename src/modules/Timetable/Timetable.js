@@ -32,51 +32,49 @@ class Timetable extends React.PureComponent {
         return `${startTime} - ${endTime}`;
     };
 
-    renderSchedule = () => map(this.props.timetable, (timetable, index) => {
-        return (
-            <div key={index} className="Timetable__result">
-                <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
-                    <Card>
-                        {timetable.image &&
-                            <CardMedia
-                                className="Timetable__blockImage"
-                                image={timetable.image}
-                            />
-                        }
-                        <CardContent>
-                            <Typography paragraph type="headline" component="h2">
-                                {timetable.title}
-                            </Typography>
-                            <Typography paragraph>
-                                {this.getDate(timetable.period)}
-                            </Typography>
-                            <Typography paragraph component="p" align="left">
-                                <div className="Timetable__blockDescription">
-                                    {timetable.description}
-                                </div>
-                            </Typography>
-                            <div className="Timetable__chips">
-                                {['cyber', 'geek', 'show'].map((tag, id) => (
-                                    <Chip
-                                        key={id}
-                                        label={tag.toUpperCase()}
-                                        className={
-                                            classNames({
-                                                'Timetable__chip': true,
-                                                '_cyber': tag === 'cyber',
-                                                '_geek': tag === 'geek',
-                                                '_show': tag === 'show',
-                                            })
-                                        }
-                                    />
-                                ))}
+    renderSchedule = () => map(this.props.timetable, (timetable, index) => (
+        <div key={index} className="Timetable__result">
+            <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
+                <Card>
+                    {timetable.image &&
+                        <CardMedia
+                            className="Timetable__blockImage"
+                            image={timetable.image}
+                        />
+                    }
+                    <CardContent>
+                        <Typography paragraph type="headline" component="h2">
+                            {timetable.title}
+                        </Typography>
+                        <Typography paragraph>
+                            {this.getDate(timetable.period)}
+                        </Typography>
+                        <Typography paragraph component="p" align="left">
+                            <div className="Timetable__blockDescription">
+                                {timetable.description}
                             </div>
-                        </CardContent>
-                    </Card>
-                </Link>
-            </div>
-        );
-    });
+                        </Typography>
+                        <div className="Timetable__chips">
+                            {['cyber', 'geek', 'show'].map((tag, id) => (
+                                <Chip
+                                    key={id}
+                                    label={tag.toUpperCase()}
+                                    className={
+                                        classNames({
+                                            'Timetable__chip': true,
+                                            '_cyber': tag === 'cyber',
+                                            '_geek': tag === 'geek',
+                                            '_show': tag === 'show',
+                                        })
+                                    }
+                                />
+                            ))}
+                        </div>
+                    </CardContent>
+                </Card>
+            </Link>
+        </div>
+    ));
 
     render() {
         const { loading, error } = this.props;

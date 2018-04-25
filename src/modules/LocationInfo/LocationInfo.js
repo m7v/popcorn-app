@@ -7,7 +7,7 @@ import List, { ListItem, ListItemText } from 'material-ui/List';
 import { bool, string, func, shape } from 'prop-types';
 import map from 'lodash/map';
 import classNames from 'classnames';
-import Card, { CardContent, CardMedia } from 'material-ui/Card';
+import { CardMedia } from 'material-ui/Card';
 import Chip from 'material-ui/Chip';
 import Typography from 'material-ui/Typography';
 import { dispatchToProps } from './connect/dispatchToProps';
@@ -107,46 +107,6 @@ class LocationInfo extends React.PureComponent {
                                             />
                                         </ListItem>
                                     ))}
-                                    {map(location.events, (event) => {
-                                        return (
-                                            <ListItem key={event.id} >
-                                                <ListItemText
-                                                    primary={event.title}
-                                                    secondary={this.getDate(event.period)}
-                                                />
-                                            </ListItem>
-                                        );
-                                    })}
-                                    {map(location.events, (event) => {
-                                        return (
-                                            <ListItem key={event.id} >
-                                                <ListItemText
-                                                    primary={event.title}
-                                                    secondary={this.getDate(event.period)}
-                                                />
-                                            </ListItem>
-                                        );
-                                    })}
-                                    {map(location.events, (event) => {
-                                        return (
-                                            <ListItem key={event.id} >
-                                                <ListItemText
-                                                    primary={event.title}
-                                                    secondary={this.getDate(event.period)}
-                                                />
-                                            </ListItem>
-                                        );
-                                    })}
-                                    {map(location.events, (event) => {
-                                        return (
-                                            <ListItem key={event.id} >
-                                                <ListItemText
-                                                    primary={event.title}
-                                                    secondary={this.getDate(event.period)}
-                                                />
-                                            </ListItem>
-                                        );
-                                    })}
                                 </List>
                             </div>
                         </div>
@@ -158,14 +118,12 @@ class LocationInfo extends React.PureComponent {
 }
 
 LocationInfo.propTypes = {
-    history: shape({}).isRequired,
     locationId: string.isRequired,
     location: shape({}).isRequired,
     locationAdd: func.isRequired,
     locationDelete: func.isRequired,
     getLocationById: func.isRequired,
     getFavoritesLocationList: func.isRequired,
-    setQueryString: func.isRequired,
     isFavorite: bool,
     isMobile: bool,
     loading: bool,
