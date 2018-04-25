@@ -7,15 +7,14 @@ import List, { ListItem, ListItemText } from 'material-ui/List';
 import { bool, string, func, shape } from 'prop-types';
 import map from 'lodash/map';
 import classNames from 'classnames';
-import { CardMedia } from 'material-ui/Card';
-import Chip from 'material-ui/Chip';
 import Typography from 'material-ui/Typography';
 import { dispatchToProps } from './connect/dispatchToProps';
 import { stateToProps } from './connect/stateToProps';
 import Loader from '../../components/Loader/Loader';
 import ButtonBack from '../../components/ButtonBack';
 import MetaHelmet from '../../components/MetaHelmet';
-import ErrorPage from '../../components/ErrorPage/ErrorPage';
+import ErrorPage from '../../components/ErrorPage';
+import SimpleImg from '../../components/SimpleImg';
 
 class LocationInfo extends React.PureComponent {
 
@@ -69,11 +68,9 @@ class LocationInfo extends React.PureComponent {
                         <MetaHelmet type={'location'} location={location} />
                         <div className="LocationInfo__card">
                             {location.image &&
-                                <CardMedia
-                                    className="LocationInfo__blockImage"
-                                    image={location.image}
-                                    title="Contemplative Reptile"
-                                />
+                                <div className="LocationInfo__blockImage">
+                                    <SimpleImg imageUrl={location.image} />
+                                </div>
                             }
                             <div>
                                 <Typography type="headline" component="h2">

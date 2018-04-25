@@ -1,0 +1,15 @@
+.SimpleImg__root {
+}
+
+.SimpleImg__img {
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 10px, rgba(0, 0, 0, 0.23) 0 3px 10px;
+}
+
+.SimpleImg__img._default {
+    width: 300px;
+    height: 200px;
+}
+
+.SimpleImg__img._foil {
+    animation: holo 2s infinite ease-out;
+}

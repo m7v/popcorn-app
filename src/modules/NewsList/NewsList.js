@@ -14,6 +14,7 @@ import stateToProps from './connect/stateToProps';
 import dispatchToProps from './connect/dispatchToProps';
 import ErrorPage from '../../components/ErrorPage';
 import EventFilter from '../../components/EventFilter';
+import SimpleImg from '../../components/SimpleImg';
 
 class NewsList extends React.PureComponent {
 
@@ -37,11 +38,9 @@ class NewsList extends React.PureComponent {
     renderNews = () => map(this.props.news, (oneNews, index) => (
         <div key={index} className="NewsList__result">
             <Card>
-                <CardMedia
-                    className="NewsList__blockImage"
-                    image={oneNews.image}
-                    title="Contemplative Reptile"
-                />
+                <div className="NewsList__blockImage">
+                    <SimpleImg imageUrl={oneNews.image} />
+                </div>
                 <CardContent>
                     <Typography type="headline" component="h2">
                         {oneNews.title}

@@ -7,7 +7,7 @@ import map from 'lodash/map';
 import moment from 'moment';
 import classNames from 'classnames';
 import Link from 'react-router-dom/Link';
-import Card, { CardContent, CardMedia } from 'material-ui/Card';
+import Card, { CardContent } from 'material-ui/Card';
 import Chip from 'material-ui/Chip';
 import Typography from 'material-ui/Typography';
 import Loader from '../../components/Loader';
@@ -16,6 +16,7 @@ import stateToProps from './connect/stateToProps';
 import dispatchToProps from './connect/dispatchToProps';
 import ErrorPage from '../../components/ErrorPage';
 import EventFilter from '../../components/EventFilter';
+import SimpleImg from '../../components/SimpleImg';
 
 class Timetable extends React.PureComponent {
 
@@ -38,19 +39,14 @@ class Timetable extends React.PureComponent {
             <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
                 <Card>
                     {timetable.image &&
-                        <div>
-                            <CardMedia
-                                className="Timetable__blockImage"
-                                image={timetable.image}
-                            />
-                            <div>
-                                <Typography paragraph type="headline" component="h2">
-                                    {timetable.title}
-                                </Typography>
-                            </div>
+                        <div className="Timetable__blockImage">
+                            <SimpleImg imageUrl={timetable.image} />
                         </div>
                     }
                     <CardContent>
+                        <Typography paragraph type="headline" component="h2">
+                            {timetable.title}
+                        </Typography>
                         <Typography paragraph>
                             { timetable.period && this.getDate(timetable.period) }
                         </Typography>
