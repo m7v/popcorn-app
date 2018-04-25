@@ -82,22 +82,7 @@ class LocationInfo extends React.PureComponent {
                                 <Typography component="p" align="center">
                                     {location.description}
                                 </Typography>
-                                <div className="LocationInfo__chips">
-                                    {['cyber', 'geek', 'show'].map((tag, id) => (
-                                        <Chip
-                                            key={id}
-                                            label={tag.toUpperCase()}
-                                            className={
-                                                classNames({
-                                                    'LocationInfo__chip': true,
-                                                    '_cyber': tag === 'cyber',
-                                                    '_geek': tag === 'geek',
-                                                    '_show': tag === 'show',
-                                                })
-                                            }
-                                        />
-                                    ))}
-                                </div>
+
                                 <List className="LocationInfo__eventList">
                                     {map(location.events, (event) => (
                                         <ListItem key={event.id} className="LocationInfo__event">

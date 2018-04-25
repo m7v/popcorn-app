@@ -109,6 +109,29 @@
     height: 200px;
 }
 
+.NewsList__chips {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 20px 0 0;
+}
+
+.NewsList__chip {
+    margin: 0 10px;
+}
+
+.NewsList__chip._geek {
+    background-color: #26c972;
+}
+
+.NewsList__chip._show {
+    background-color: #90309b;
+}
+
+.NewsList__chip._cyber {
+    background-color: #03aac3;
+}
+
 .NewsList__set {
     color: #f58d14;
     padding: 15px;

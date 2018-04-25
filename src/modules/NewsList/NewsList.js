@@ -4,8 +4,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bool, arrayOf, shape, func } from 'prop-types';
 import map from 'lodash/map';
+import classNames from 'classnames';
 import Card, { CardContent, CardMedia } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
+import Chip from 'material-ui/Chip';
 import Loader from '../../components/Loader';
 import MetaHelmet from '../../components/MetaHelmet';
 import stateToProps from './connect/stateToProps';
@@ -44,6 +46,22 @@ class NewsList extends React.PureComponent {
                         {oneNews.title}
                     </Typography>
                     <Typography component="p" align="left">{oneNews.text}</Typography>
+                    <div className="NewsList__chips">
+                        {oneNews.tags && oneNews.tags.map((tag, id) => (
+                            <Chip
+                                key={id}
+                                label={tag.name.toUpperCase()}
+                                className={
+                                    classNames({
+                                        'NewsList__chip': true,
+                                        '_cyber': tag.name === 'cyber',
+                                        '_geek': tag.name === 'geek',
+                                        '_show': tag.name === 'show',
+                                    })
+                                }
+                            />
+                        ))}
+                    </div>
                 </CardContent>
             </Card>
         </div>

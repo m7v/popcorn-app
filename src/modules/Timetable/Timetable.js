@@ -55,16 +55,16 @@ class Timetable extends React.PureComponent {
                             </div>
                         </Typography>
                         <div className="Timetable__chips">
-                            {['cyber', 'geek', 'show'].map((tag, id) => (
+                            {timetable.tags && timetable.tags.map((tag, id) => (
                                 <Chip
                                     key={id}
-                                    label={tag.toUpperCase()}
+                                    label={tag.name.toUpperCase()}
                                     className={
                                         classNames({
                                             'Timetable__chip': true,
-                                            '_cyber': tag === 'cyber',
-                                            '_geek': tag === 'geek',
-                                            '_show': tag === 'show',
+                                            '_cyber': tag.name === 'cyber',
+                                            '_geek': tag.name === 'geek',
+                                            '_show': tag.name === 'show',
                                         })
                                     }
                                 />
