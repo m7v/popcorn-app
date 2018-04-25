@@ -148,7 +148,7 @@ class InteractiveMap extends React.Component {
                     <img
                         id="sampleShapes"
                         src={this.URL}
-                        alt="Image Map Sample"
+                        alt="Map"
                         className="InteractiveMap__map"
                         useMap="#sampleShapesMap"
                     />
