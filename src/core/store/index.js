@@ -61,28 +61,10 @@ const initialState = {
             data: [],
             filters: {
                 name: '',
-                rarity: {
-                    common: false,
-                    uncommon: false,
-                    rare: false,
-                    mythic: false,
-                    basicLand: false,
-                },
-                colors: {
-                    w: false,
-                    u: false,
-                    b: false,
-                    r: false,
-                    g: false,
-                },
-                types: {
-                    planeswalker: false,
-                    creature: false,
-                    instant: false,
-                    sorcery: false,
-                    enchantment: false,
-                    artifact: false,
-                    land: false,
+                tags: {
+                    geek: false,
+                    cyber: false,
+                    show: false,
                 }
             },
             loading: false,
@@ -92,28 +74,10 @@ const initialState = {
             data: [],
             filters: {
                 name: '',
-                rarity: {
-                    common: false,
-                    uncommon: false,
-                    rare: false,
-                    mythic: false,
-                    basicLand: false,
-                },
-                colors: {
-                    w: false,
-                    u: false,
-                    b: false,
-                    r: false,
-                    g: false,
-                },
-                types: {
-                    planeswalker: false,
-                    creature: false,
-                    instant: false,
-                    sorcery: false,
-                    enchantment: false,
-                    artifact: false,
-                    land: false,
+                tags: {
+                    geek: false,
+                    cyber: false,
+                    show: false,
                 }
             },
             loading: false,

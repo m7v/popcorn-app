@@ -1,0 +1,72 @@
+.EventFilter__inputWrapper,
+.EventFilter__header,
+.EventFilter__inputTagsFilter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.EventFilter__header {
+    margin-bottom: 15px;
+    color: #eee;
+    font-family: "Affect-Bol";
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.EventFilter__header:after {
+    content: ' ';
+    border-bottom: 1px solid #eee;
+    width: 90%;
+}
+
+.EventFilter__IconHeader,
+.EventFilter__headerTitle {
+    text-align: center;
+    padding: 5px;
+}
+
+.ss-basicLand {
+    color: #111111;
+}
+
+.EventFilter__tags {
+    transition: all 0.25s ease-in-out;
+    font-family: "Beleren Bold";
+}
+
+.EventFilter__tags.ss-geek {
+    color: #26c972;
+}
+
+.EventFilter__tags.ss-show {
+    color: #e300fd;
+}
+
+.EventFilter__tags.ss-cyber {
+    color: #03aac3;
+}
+
+.EventFilter__result {
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    font-family: "Beleren Bold";
+    color: #eee;
+}
+
+.EventFilter__icon {
+    color: #e2e2e2;
+    width: 42px !important;
+    height: 42px !important;
+    padding: 9px !important;
+}
+
+.EventFilter__icon._active svg {
+    color: #ffeb3b !important;
+}
+
+.EventFilter__label > div {
+    top: -10px !important;
+}

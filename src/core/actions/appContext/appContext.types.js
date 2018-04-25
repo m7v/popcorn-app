@@ -1,4 +1,6 @@
 import {
+    APP_SET_EVENT_TAGS_FILTERS,
+    APP_SET_NEWS_TAGS_FILTERS,
     APP_CONTEXT_INITIALIZED,
     APP_CONTEXT_SET_SW_DATA,
     APP_CARDS_REQUEST_STARTED,
@@ -224,6 +226,22 @@ export function appSetRarityFilter(rarity) {
     return {
         type: APP_SET_CARDS_RARITY_FILTERS,
         payload: {rarity},
+        meta: {}
+    };
+}
+
+export function appSetEventTagsFilter(tags) {
+    return {
+        type: APP_SET_EVENT_TAGS_FILTERS,
+        payload: {tags},
+        meta: {}
+    };
+}
+
+export function appSetNewsTagsFilter(tags) {
+    return {
+        type: APP_SET_NEWS_TAGS_FILTERS,
+        payload: {tags},
         meta: {}
     };
 }

@@ -12,7 +12,8 @@ import Loader from '../../components/Loader';
 import MetaHelmet from '../../components/MetaHelmet';
 import stateToProps from './connect/stateToProps';
 import dispatchToProps from './connect/dispatchToProps';
-import ErrorPage from '../../components/ErrorPage/ErrorPage';
+import ErrorPage from '../../components/ErrorPage';
+import EventFilter from '../../components/EventFilter';
 
 class NewsList extends React.PureComponent {
 
@@ -50,13 +51,13 @@ class NewsList extends React.PureComponent {
                         {oneNews.tags && oneNews.tags.map((tag, id) => (
                             <Chip
                                 key={id}
-                                label={tag.name.toUpperCase()}
+                                label={tag.toUpperCase()}
                                 className={
                                     classNames({
                                         'NewsList__chip': true,
-                                        '_cyber': tag.name === 'cyber',
-                                        '_geek': tag.name === 'geek',
-                                        '_show': tag.name === 'show',
+                                        '_cyber': tag === 'cyber',
+                                        '_geek': tag === 'geek',
+                                        '_show': tag === 'show',
                                     })
                                 }
                             />
@@ -72,6 +73,16 @@ class NewsList extends React.PureComponent {
 
         return (
             <section className="NewsList">
+                <EventFilter
+                    className={'NewsList__filter'}
+                    tags={this.props.tags}
+                    currentSet={{
+                        name: 'Новости',
+                        code: 'news'
+                    }}
+                    appSetTagsFilter={this.props.appSetNewsTagsFilter}
+                    resultCount={this.props.news.length}
+                />
                 <MetaHelmet type={'news'} />
                 <div className="NewsList__main">
                     {loading &&
@@ -99,7 +110,9 @@ NewsList.propTypes = {
     loading: bool,
     error: bool,
     news: arrayOf(shape({})),
+    tags: arrayOf(shape({})),
     getNewsList: func.isRequired,
+    appSetNewsTagsFilter: func.isRequired,
 };
 
 NewsList.defaultProps = {
@@ -107,6 +120,7 @@ NewsList.defaultProps = {
     loading: false,
     error: false,
     news: [],
+    tags: [],
 };
 
 export default connect(stateToProps, dispatchToProps)(NewsList);

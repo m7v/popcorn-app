@@ -1,6 +1,11 @@
 import intersection from 'lodash/intersection';
 import sortBy from 'lodash/sortBy';
 
+const popcornMap = {
+    geek: 'geek',
+    show: 'show',
+    cyber: 'cyber',
+};
 const rarityMap = {
     basicLand: 'Basic Land',
     common: 'Common',
@@ -32,6 +37,8 @@ const filters = {
     types: selectedFilters => card => !!intersection(card.types, selectedFilters).length,
 
     rarity: selectedFilters => card => selectedFilters.includes(card.rarity),
+
+    tags: selectedFilters => event => intersection(event.tags, selectedFilters).length > 0,
 };
 
 const getActiveFilters = mapping => filter => Object.keys(filter)
@@ -41,6 +48,17 @@ const getActiveFilters = mapping => filter => Object.keys(filter)
 export const getActiveTypeFilter = getActiveFilters(typesMap);
 export const getActiveColorFilter = getActiveFilters(colorMap);
 export const getActiveRarityFilter = getActiveFilters(rarityMap);
+export const getActivePopcornFilter = getActiveFilters(popcornMap);
+
+export const createEventFilter = (selectedFilters, property) => events => {
+    if (!events.length) {
+        return events;
+    }
+    if (selectedFilters.length) {
+        return sortBy(events.filter(filters[property](selectedFilters)), [c => c[property].length]);
+    }
+    return sortBy(events, [c => c[property] && c[property].length]);
+};
 
 export const createCardFilter = (selectedFilters, property) => cards => {
     if (!cards.length) {

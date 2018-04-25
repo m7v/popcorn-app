@@ -1,4 +1,7 @@
 import {
+    APP_SET_EVENT_TAGS_FILTERS,
+    APP_SET_NEWS_TAGS_FILTERS,
+
     APP_CONTEXT_INITIALIZED,
     APP_CONTEXT_SET_SW_DATA,
     APP_SET_CARDS_COLORS_FILTERS,
@@ -109,6 +112,39 @@ function appSetTypeFilter(state, types) {
         }
     };
 }
+
+function appSetEventTagsFilter(state, tags) {
+    return {
+        ...state,
+        Timetable: {
+            ...state.Timetable,
+            filters: {
+                ...state.Timetable.filters,
+                tags: {
+                    ...state.Timetable.filters.tags,
+                    ...tags
+                }
+            }
+        }
+    };
+}
+
+function appSetNewTagsFilter(state, tags) {
+    return {
+        ...state,
+        News: {
+            ...state.News,
+            filters: {
+                ...state.News.filters,
+                tags: {
+                    ...state.News.filters.tags,
+                    ...tags
+                }
+            }
+        }
+    };
+}
+
 
 function appSetRarityFilter(state, rarity) {
     return {
@@ -553,6 +589,10 @@ export default (state = {}, action) => {
             return appSetColorFilter(state, action.payload.colors);
         case APP_SET_CARDS_RARITY_FILTERS:
             return appSetRarityFilter(state, action.payload.rarity);
+        case APP_SET_EVENT_TAGS_FILTERS:
+            return appSetEventTagsFilter(state, action.payload.tags);
+        case APP_SET_NEWS_TAGS_FILTERS:
+            return appSetNewTagsFilter(state, action.payload.tags);
         case APP_SET_CARDS_TYPES_FILTERS:
             return appSetTypeFilter(state, action.payload.types);
         case APP_SET_CARDSET_RARITY_FILTERS:

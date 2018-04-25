@@ -14,7 +14,8 @@ import Loader from '../../components/Loader';
 import MetaHelmet from '../../components/MetaHelmet';
 import stateToProps from './connect/stateToProps';
 import dispatchToProps from './connect/dispatchToProps';
-import ErrorPage from '../../components/ErrorPage/ErrorPage';
+import ErrorPage from '../../components/ErrorPage';
+import EventFilter from '../../components/EventFilter';
 
 class Timetable extends React.PureComponent {
 
@@ -37,17 +38,21 @@ class Timetable extends React.PureComponent {
             <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
                 <Card>
                     {timetable.image &&
-                        <CardMedia
-                            className="Timetable__blockImage"
-                            image={timetable.image}
-                        />
+                        <div>
+                            <CardMedia
+                                className="Timetable__blockImage"
+                                image={timetable.image}
+                            />
+                            <div>
+                                <Typography paragraph type="headline" component="h2">
+                                    {timetable.title}
+                                </Typography>
+                            </div>
+                        </div>
                     }
                     <CardContent>
-                        <Typography paragraph type="headline" component="h2">
-                            {timetable.title}
-                        </Typography>
                         <Typography paragraph>
-                            {this.getDate(timetable.period)}
+                            { timetable.period && this.getDate(timetable.period) }
                         </Typography>
                         <Typography paragraph component="p" align="left">
                             <div className="Timetable__blockDescription">
@@ -58,13 +63,13 @@ class Timetable extends React.PureComponent {
                             {timetable.tags && timetable.tags.map((tag, id) => (
                                 <Chip
                                     key={id}
-                                    label={tag.name.toUpperCase()}
+                                    label={tag.toUpperCase()}
                                     className={
                                         classNames({
                                             'Timetable__chip': true,
-                                            '_cyber': tag.name === 'cyber',
-                                            '_geek': tag.name === 'geek',
-                                            '_show': tag.name === 'show',
+                                            '_cyber': tag === 'cyber',
+                                            '_geek': tag === 'geek',
+                                            '_show': tag === 'show',
                                         })
                                     }
                                 />
@@ -81,6 +86,16 @@ class Timetable extends React.PureComponent {
 
         return (
             <section className="Timetable">
+                <EventFilter
+                    className={'Timetable__filter'}
+                    tags={this.props.tags}
+                    currentSet={{
+                        name: 'Расписание',
+                        code: 'timetable'
+                    }}
+                    appSetTagsFilter={this.props.appSetEventTagsFilter}
+                    resultCount={this.props.timetable.length}
+                />
                 <MetaHelmet type={'schedule'} />
                 <div className="Timetable__main">
                     {loading &&
@@ -96,7 +111,6 @@ class Timetable extends React.PureComponent {
                     {!loading && !error &&
                         <div className="Timetable__results">
                             { this.renderSchedule() }
-                            { this.renderSchedule() }
                         </div>
                     }
                 </div>
@@ -109,6 +123,8 @@ Timetable.propTypes = {
     loading: bool,
     error: bool,
     timetable: arrayOf(shape({})),
+    tags: shape({}).isRequired,
+    appSetEventTagsFilter: func.isRequired,
     getTimetable: func.isRequired,
 };
 

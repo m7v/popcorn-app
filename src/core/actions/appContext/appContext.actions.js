@@ -16,6 +16,14 @@ export function appSetTypeFilter(cardTypes) {
 }
 
 
+export function appSetEventTagsFilter(eventTag) {
+    return dispatch => dispatch(types.appSetEventTagsFilter(eventTag));
+}
+
+export function appSetNewsTagsFilter(eventTag) {
+    return dispatch => dispatch(types.appSetNewsTagsFilter(eventTag));
+}
+
 export function appSetRarityFilter(cardRarity) {
     return dispatch => dispatch(types.appSetRarityFilter(cardRarity));
 }
