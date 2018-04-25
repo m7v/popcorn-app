@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Beleren Bold";
-    src: url(../fonts/Beleren2016-Bold.woff) format('woff')
+    src: url(../fonts/Beleren2016-Bold.woff) format('woff');
 }
 
 html, body {
