@@ -1,4 +1,5 @@
 import * as types from './appContext.types';
+import { addTicket, getTicket } from '../../services/mtgApi/mtgApi.service';
 
 /**
  * @returns {function(*)}Success
@@ -22,6 +23,18 @@ export function appSetEventTagsFilter(eventTag) {
 
 export function appSetNewsTagsFilter(eventTag) {
     return dispatch => dispatch(types.appSetNewsTagsFilter(eventTag));
+}
+
+export function saveTicketCode(ticketCode) {
+    return dispatch =>
+        addTicket(ticketCode)
+            .then(() => dispatch(types.saveTicketCode(ticketCode)));
+}
+
+export function getTicketCode() {
+    return dispatch =>
+        getTicket()
+            .then((ticketCode) => dispatch(types.saveTicketCode(ticketCode)));
 }
 
 export function appSetRarityFilter(cardRarity) {

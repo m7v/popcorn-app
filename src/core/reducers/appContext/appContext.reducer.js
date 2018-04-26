@@ -2,6 +2,11 @@ import {
     APP_SET_EVENT_TAGS_FILTERS,
     APP_SET_NEWS_TAGS_FILTERS,
 
+    APP_SAVE_TICKET_CODE,
+    APP_TICKET_REQUEST_STARTED,
+    APP_TICKET_REQUEST_SUCCESS,
+    APP_TICKET_REQUEST_FAILED,
+
     APP_CONTEXT_INITIALIZED,
     APP_CONTEXT_SET_SW_DATA,
     APP_SET_CARDS_COLORS_FILTERS,
@@ -78,6 +83,45 @@ function appContextSetSWData(state, payload) {
             loading: false,
         },
         isMobile: state.isMobile
+    };
+}
+
+function appTicketRequestStarted(state) {
+    return {
+        ...state,
+        TicketCode: {
+            ...state.TicketCode,
+            loading: true,
+        }
+    };
+}
+function appTicketRequestSuccess(state) {
+    return {
+        ...state,
+        TicketCode: {
+            ...state.TicketCode,
+            loading: false,
+            error: false
+        }
+    };
+}
+function appTicketRequestFailed(state) {
+    return {
+        ...state,
+        TicketCode: {
+            ...state.TicketCode,
+            loading: false,
+            error: true
+        }
+    };
+}
+function appSaveTicket(state, code) {
+    return {
+        ...state,
+        TicketCode: {
+            ...state.TicketCode,
+            code
+        }
     };
 }
 
@@ -575,6 +619,14 @@ function appTimetableAddSchedule(state, schedule) {
  */
 export default (state = {}, action) => {
     switch (action.type) {
+        case APP_TICKET_REQUEST_STARTED:
+            return appTicketRequestStarted(state);
+        case APP_TICKET_REQUEST_SUCCESS:
+            return appTicketRequestSuccess(state);
+        case APP_TICKET_REQUEST_FAILED:
+            return appTicketRequestFailed(state);
+        case APP_SAVE_TICKET_CODE:
+            return appSaveTicket(state, action.payload.code);
         case APP_CONTEXT_SET_SW_DATA:
             return appContextSetSWData(state, action.payload);
         case APP_CONTEXT_INITIALIZED:

@@ -1,6 +1,10 @@
 import {
     APP_SET_EVENT_TAGS_FILTERS,
     APP_SET_NEWS_TAGS_FILTERS,
+    APP_SAVE_TICKET_CODE,
+    APP_TICKET_REQUEST_STARTED,
+    APP_TICKET_REQUEST_SUCCESS,
+    APP_TICKET_REQUEST_FAILED,
     APP_CONTEXT_INITIALIZED,
     APP_CONTEXT_SET_SW_DATA,
     APP_CARDS_REQUEST_STARTED,
@@ -298,6 +302,36 @@ export function appSetFavoritesRarityFilter(rarity) {
     return {
         type: APP_SET_FAVORITES_RARITY_FILTERS,
         payload: {rarity},
+        meta: {}
+    };
+}
+
+export function saveTicketCode(code) {
+    return {
+        type: APP_SAVE_TICKET_CODE,
+        payload: {code},
+        meta: {}
+    };
+}
+
+export function appTicketRequestStarted() {
+    return {
+        type: APP_TICKET_REQUEST_STARTED,
+        payload: {},
+        meta: {}
+    };
+}
+export function appTicketRequestSuccess() {
+    return {
+        type: APP_TICKET_REQUEST_SUCCESS,
+        payload: {},
+        meta: {}
+    };
+}
+export function appTicketRequestFailed() {
+    return {
+        type: APP_TICKET_REQUEST_FAILED,
+        payload: {},
         meta: {}
     };
 }

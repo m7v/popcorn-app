@@ -57,6 +57,11 @@ const initialState = {
         initial: false,
         isOffline: false,
         isMobile: device.type === 'tablet' || device.type === 'mobile',
+        TicketCode: {
+            code: '',
+            loading: false,
+            error: false,
+        },
         News: {
             data: [],
             filters: {

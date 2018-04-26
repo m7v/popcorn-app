@@ -81,6 +81,10 @@ class NavBar extends React.PureComponent {
     }
 
     render() {
+        if (this.props.history.location.pathname === '/') {
+            return null;
+        }
+
         return (
             <Paper className="NavBar__root" elevation={4}>
                 <BottomNavigation value={this.getRouteIndex()}>

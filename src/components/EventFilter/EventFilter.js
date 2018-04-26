@@ -10,7 +10,6 @@ import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import IconFilter from 'material-ui-icons/FilterList';
 import Drawer from 'material-ui/Drawer';
-import IconSet from '../IconSet/IconSet';
 
 const tagsMap = {
     cyber: 'cyber',

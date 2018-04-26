@@ -297,3 +297,15 @@ export const getTimetable = () =>
                 ']'
             );
         });
+
+const storageTicketKey = 'ticket';
+const getTicketCode = () => window.localStorage.getItem(storageTicketKey) || '';
+
+export const addTicket = (ticket) => {
+    window.localStorage.setItem(storageTicketKey, ticket);
+
+    return Promise.resolve();
+};
+
+export const getTicket = () =>
+    Promise.resolve(getTicketCode());

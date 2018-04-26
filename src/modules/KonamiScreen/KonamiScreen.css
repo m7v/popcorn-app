@@ -1,0 +1,124 @@
+.KonamiScreen__root {
+    width: 100vw;
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    user-select: none;
+}
+
+.KonamiScreen__switcher {
+    font-family: "PressStart2P";
+    font-size: 10px;
+    color: #e2e2e2;
+}
+
+.KonamiScreen__switcher .KonamiScreen__lang {
+    cursor: pointer;
+}
+
+.KonamiScreen__switcher .KonamiScreen__lang._active{
+    color: #e2cf32;
+    cursor: default;
+}
+
+.KonamiScreen__ticketCode {
+    display: block;
+    margin: 2em auto;
+    padding: 0.5em 0.25em;
+    border: none;
+    border-radius: 0.2em;
+    font-size: 1.5em;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 0 1em 0.25em rgba(0,0,0,0.2);
+}
+
+.KonamiScreen__logo {
+    width: 75%;
+}
+
+.KonamiScreen__welcomeText {
+    color: #e2e2e2;
+    font-family: "PressStart2P";
+}
+
+.KonamiScreen__copyRight {
+    font-size: 1em;
+    padding: 10px 0 0;
+}
+
+.KonamiScreen__esterHint {
+    user-select: text;
+    color: #2d2d2d;
+    cursor: pointer;
+}
+
+.KonamiScreen__selectMenu {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.KonamiScreen__selectItem {
+    padding: 10px;
+    display: flex;
+    cursor: pointer;
+}
+
+.KonamiScreen__selectItem:hover {
+    color: #e2cf32;
+    position: relative;
+}
+
+.KonamiScreen__selectItem:focus {
+    outline: none;
+}
+
+.KonamiScreen__selectItem:hover::before {
+    content: "→";
+    position: absolute;
+    top: 10px;
+    left: -15px;
+    color: #e2cf32;
+}
+
+.KonamiScreen__drawer {
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #eee;
+}
+
+.KonamiScreen__text {
+    font-family: "PressStart2P";
+    font-size: 10px;
+    line-height: 25px;
+    padding: 3em 1em 1em;
+}
+
+.KonamiScreen__link {
+    text-decoration: none;
+    color: #e2cf32;
+}
+
+.KonamiScreen__actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.KonamiScreen__closeButton {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    text-align: center;
+}
+
+.KonamiScreen__button {
+    font-family: "PressStart2P";
+    color: #e2cf32;
+}
