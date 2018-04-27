@@ -29,8 +29,8 @@ class Timetable extends React.PureComponent {
     }
 
     getDate = (period) => {
-        const startTime = moment(period.startTime * 1000).format('DD MMM h:mm');
-        const endTime = moment(period.endTime * 1000).format('DD MMM h:mm');
+        const startTime = moment(period.startTime * 1000).format('DD MMM H:mm');
+        const endTime = moment(period.endTime * 1000).format('DD MMM H:mm');
         return `${startTime} - ${endTime}`;
     };
 
