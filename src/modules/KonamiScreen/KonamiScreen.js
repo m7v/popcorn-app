@@ -80,10 +80,6 @@ class KonamiScreen extends React.Component {
         this.props.getTicketCode();
     }
 
-    componentDidMount() {
-        this.menu.firstElementChild.focus();
-    }
-
     componentWillUpdate(nextProps) {
         if (this.props.ticketCode !== nextProps.ticketCode) {
             this.setState({
@@ -221,7 +217,7 @@ class KonamiScreen extends React.Component {
                         @ POPCORN TEAM 2018
                     </div>
                     <div className="KonamiScreen__esterHint">コナミコマンド</div>
-                    <ul className="KonamiScreen__selectMenu" ref={node => this.menu = node}>
+                    <ul className="KonamiScreen__selectMenu">
                         {menuItems[this.state.language].map((item, idx) => (
                             <ol
                                 key={item.path}
