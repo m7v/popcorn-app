@@ -5,19 +5,17 @@ import { shape } from 'prop-types';
 import withRouter from 'react-router-dom/withRouter';
 import findIndex from 'lodash/findIndex';
 import Paper from 'material-ui/Paper';
-// import IconViewModule from 'material-ui-icons/ViewModule';
-// import IconViewCarousel from 'material-ui-icons/ViewCarousel';
 import IconSearch from 'material-ui-icons/Map';
-// import IconAddBox from 'material-ui-icons/AddBox';
 import IconFavorite from 'material-ui-icons/Notifications';
+import IconStars from 'material-ui-icons/Stars';
+import IconHome from 'material-ui-icons/Home';
 import IconBrowse from 'material-ui-icons/Inbox';
 
 const browseIcon = <IconBrowse />;
-// const AddIcon = <IconAddBox />;
+const homeIcon = <IconHome />;
+const starIcon = <IconStars />;
 const favoritesIcon = <IconFavorite />;
 const searchIcon = <IconSearch />;
-// const deckIcon = <IconViewModule />;
-// const cardIcon = <IconViewCarousel />;
 
 const navbarConfig = [
     {
@@ -25,43 +23,34 @@ const navbarConfig = [
         icon: searchIcon,
         label: 'Map',
     },
-    // {
-    //     path: '/browse',
-    //     icon: browseIcon,
-    //     label: 'Browse',
-    // },
     {
         path: '/news',
         icon: browseIcon,
-        label: 'news',
+        label: 'News',
     },
-    // {
-    //     path: '/deck/add',
-    //     icon: AddIcon,
-    //     label: 'Add Deck',
-    // },
+    {
+        path: '/',
+        root: true,
+        icon: homeIcon,
+        label: 'Home',
+    },
     {
         path: '/timetable',
         icon: favoritesIcon,
         label: 'Timetable',
     },
-    // {
-    //     path: '/cards',
-    //     icon: cardIcon,
-    //     label: 'Library',
-    // },
-    // {
-    //     path: '/decks',
-    //     icon: deckIcon,
-    //     label: 'Decks',
-    // }
+    {
+        path: '/1',
+        icon: starIcon,
+        label: 'Voting',
+    }
 ];
 
 class NavBar extends React.PureComponent {
 
     getRouteIndex(itemPath) {
         const path = itemPath || this.props.location.pathname;
-        return findIndex(navbarConfig, (o) => path.indexOf(o.path) >= 0);
+        return findIndex(navbarConfig, (o) => !o.root && path.indexOf(o.path) >= 0);
     }
 
     renderNavigationLinks() {
