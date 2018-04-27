@@ -67,7 +67,7 @@
   "bundlesize": [
     {
       "path": "./build/static/js/main.*.js",
-      "maxSize": "125 kB"
+      "maxSize": "130 kB"
     },
     {
       "path": "./build/static/js/*.chunk.js",

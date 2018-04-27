@@ -45,7 +45,7 @@
 }
 
 .KonamiScreen__copyRight {
-    font-size: 1em;
+    font-size: 0.7em;
     padding: 10px 0 0;
 }
 
@@ -74,10 +74,20 @@
 }
 
 .KonamiScreen__selectItem:focus {
+    color: #e2cf32;
+    position: relative;
     outline: none;
 }
 
 .KonamiScreen__selectItem:hover::before {
+    content: "→";
+    position: absolute;
+    top: 10px;
+    left: -15px;
+    color: #e2cf32;
+}
+
+.KonamiScreen__selectItem:focus::before {
     content: "→";
     position: absolute;
     top: 10px;
