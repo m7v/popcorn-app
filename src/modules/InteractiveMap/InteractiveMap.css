@@ -1,9 +1,7 @@
 .InteractiveMap__container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 15vh 0;
+    height: calc(100vh - 50px);
     overflow-x: hidden;
     overflow-y: auto;
     box-sizing: border-box;
@@ -26,8 +24,7 @@
 }
 
 .InteractiveMap__result {
-    margin-top: 100px;
-    padding-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .InteractiveMap__map {
