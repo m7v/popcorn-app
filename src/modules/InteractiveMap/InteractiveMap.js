@@ -3,6 +3,7 @@ import $ from 'jquery';
 import React from 'react';
 import { shape } from 'prop-types';
 import './lib/map';
+import map from './assets/map.jpg';
 import withRouter from 'react-router-dom/withRouter';
 
 class InteractiveMap extends React.Component {
@@ -12,7 +13,6 @@ class InteractiveMap extends React.Component {
         });
     }
 
-    URL = 'https://sun1-2.userapi.com/c840739/v840739512/76c2b/jWOWqVbjHEw.jpg';
     // URL = mapSkeleton;
 
     // areas = [
@@ -144,27 +144,29 @@ class InteractiveMap extends React.Component {
     render() {
         return (
             <div className="InteractiveMap__root">
-                <div className="InteractiveMap__container">
-                    <img
-                        id="sampleShapes"
-                        src={this.URL}
-                        alt="Map"
-                        className="InteractiveMap__map"
-                        useMap="#sampleShapesMap"
-                    />
-                    <map name="sampleShapesMap">
-                        {this.areas.map(area => (
-                            <area
-                                key={area.id}
-                                shape={area.shape}
-                                alt={area.alt}
-                                title={area.title}
-                                coords={area.coords}
-                                onClick={() => this.handleClick(area)}
-                            />
-                        ))}
-                    </map>
-                </div>
+                <section className="InteractiveMap__container">
+                    <div className="InteractiveMap__result">
+                        <img
+                            id="sampleShapes"
+                            src={map}
+                            alt="Map"
+                            className="InteractiveMap__map"
+                            useMap="#sampleShapesMap"
+                        />
+                        <map name="sampleShapesMap">
+                            {this.areas.map(area => (
+                                <area
+                                    key={area.id}
+                                    shape={area.shape}
+                                    alt={area.alt}
+                                    title={area.title}
+                                    coords={area.coords}
+                                    onClick={() => this.handleClick(area)}
+                                />
+                            ))}
+                        </map>
+                    </div>
+                </section>
             </div>
         );
     }

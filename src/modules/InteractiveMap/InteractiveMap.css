@@ -1,23 +1,33 @@
-.InteractiveMap__root {
+.InteractiveMap__container {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    height: 100vh;
+    padding: 15vh 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
 }
 
-.InteractiveMap__root::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+.InteractiveMap__container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: #696969;
 }
 
-.InteractiveMap__root::-webkit-scrollbar {
+.InteractiveMap__container::-webkit-scrollbar {
     width: 10px;
     background-color: #696969;
 }
 
-.InteractiveMap__container {
-    height: calc(100vh - 60px);
+.InteractiveMap__container::-webkit-scrollbar-thumb {
+    background-color: #303030;
+    border: 2px solid #303030;
+}
+
+.InteractiveMap__result {
+    margin-top: 100px;
+    padding-bottom: 50px;
 }
 
 .InteractiveMap__map {
