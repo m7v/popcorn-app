@@ -3,6 +3,7 @@ import React from 'react';
 import { func, shape, string, number } from 'prop-types';
 import classNames from 'classnames';
 import map from 'lodash/map';
+import reduce from 'lodash/reduce';
 import isEmpty from 'lodash/isEmpty';
 import compact from 'lodash/compact';
 import debounce from 'lodash/debounce';
@@ -10,6 +11,7 @@ import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import IconFilter from 'material-ui-icons/FilterList';
 import Drawer from 'material-ui/Drawer';
+import Badge from 'material-ui/Badge';
 
 const tagsMap = {
     cyber: 'cyber',
@@ -70,11 +72,21 @@ class EventFilter extends React.Component {
             'EventFilter__icon': true,
             '_active': hasTagsFilter
         });
+        const countActiveFilters = reduce(tags, (count, tag) => {
+            return tag ? count + 1 : count + 0;
+        }, 0);
 
         return (
             <div className={className || 'EventFilter__root'}>
                 <IconButton className={iconStyle} onClick={this.handleToggle}>
-                    <IconFilter />
+                    {!!countActiveFilters &&
+                        <Badge badgeContent={countActiveFilters} color="primary">
+                            <IconFilter />
+                        </Badge>
+                    }
+                    {!countActiveFilters &&
+                        <IconFilter />
+                    }
                 </IconButton>
                 <Drawer
                     anchor='top'

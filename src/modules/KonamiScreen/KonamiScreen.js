@@ -149,10 +149,16 @@ class KonamiScreen extends React.Component {
                                 Hello! <br />
                                 My name is Andrew.<br />
                                 I've created this application for you.<br />
-                                I'm really happy that you find my easter egg.<br />
-                                <br />
-                                <br />
-                                powered by <a className="KonamiScreen__link" href="http://m7v.github.com">M7V</a>
+                                I'm really happy that you found my easter egg.<br />
+                                <img src="https://i.imgur.com/pnztT1T.gif" width={200} alt="" /><br />
+                                powered by <a
+                                    className="KonamiScreen__link"
+                                    href="http://m7v.github.com"
+                                    target="_blank"
+                                    rel='noopener noreferrer'
+                                >
+                                    M7V
+                                </a>
                             </div>
                         </DialogContent>
                     </Dialog>
