@@ -25,6 +25,7 @@
 
 .Voting__form {
     min-width: 300px;
+    width: 300px;
 }
 
 .Voting__switcher {
