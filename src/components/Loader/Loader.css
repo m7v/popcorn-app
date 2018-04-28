@@ -30,7 +30,7 @@
 }
 
 .Loader > div {
-    background: #382d14 url(./assets/default-card.png) no-repeat;
+    background: #382d14 url(./assets/default.png) no-repeat;
     background-size: 60px 80px;
 }
 
