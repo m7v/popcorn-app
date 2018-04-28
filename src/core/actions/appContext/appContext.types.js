@@ -29,6 +29,7 @@ import {
     APP_SET_FAVORITES_COLORS_FILTERS,
     APP_SET_FAVORITES_RARITY_FILTERS,
     APP_SET_FAVORITES_TYPES_FILTERS,
+    APP_SET_VOTE,
 
     APP_NEWS_REQUEST_STARTED,
     APP_NEWS_REQUEST_SUCCESS,
@@ -38,7 +39,10 @@ import {
     APP_TIMETABLE_REQUEST_FAILED,
     APP_LOCATION_REQUEST_STARTED,
     APP_LOCATION_REQUEST_SUCCESS,
-    APP_LOCATION_REQUEST_FAILED
+    APP_LOCATION_REQUEST_FAILED,
+    APP_STANDS_REQUEST_STARTED,
+    APP_STANDS_REQUEST_SUCCESS,
+    APP_STANDS_REQUEST_FAILED,
 } from '../../../core/reducers/appContext/appContext.helper';
 
 export function appInitialized() {
@@ -332,6 +336,36 @@ export function appTicketRequestFailed() {
     return {
         type: APP_TICKET_REQUEST_FAILED,
         payload: {},
+        meta: {}
+    };
+}
+
+export function appStandsRequestStarted() {
+    return {
+        type: APP_STANDS_REQUEST_STARTED,
+        payload: {},
+        meta: {}
+    };
+}
+export function appStandsRequestSuccess() {
+    return {
+        type: APP_STANDS_REQUEST_SUCCESS,
+        payload: {},
+        meta: {}
+    };
+}
+export function appStandsRequestFailed(error) {
+    return {
+        type: APP_STANDS_REQUEST_FAILED,
+        payload: {error},
+        meta: {}
+    };
+}
+
+export function appSetVote(vote) {
+    return {
+        type: APP_SET_VOTE,
+        payload: {vote},
         meta: {}
     };
 }

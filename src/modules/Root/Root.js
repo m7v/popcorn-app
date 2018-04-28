@@ -18,6 +18,7 @@ const InteractiveMap = (props) => <Async load={import('../InteractiveMap/contain
 const KonamiScreen = (props) => <Async load={import('../KonamiScreen/container')} componentProps={props} />;
 const LocationInfo = (props) => <Async load={import('../LocationInfo/container')} componentProps={props} />;
 const NewsList = (props) => <Async load={import('../NewsList/container')} componentProps={props} />;
+const Voting = (props) => <Async load={import('../Voting/container')} componentProps={props} />;
 
 class Root extends React.Component {
 
@@ -69,6 +70,11 @@ class Root extends React.Component {
                             exact
                             path="/news"
                             component={NewsList}
+                        />
+                        <Route
+                            exact
+                            path="/vote"
+                            component={Voting}
                         />
                     </Switch>
                 </section>

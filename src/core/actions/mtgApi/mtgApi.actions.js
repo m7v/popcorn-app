@@ -9,6 +9,7 @@ import {
     getDoubleFaceCards as requestGetDoubleFaceCards,
     getSetList as requestGetSetList,
     getNewsList as requestGetNewsList,
+    getStands as requestGetStands,
     getTimetable as requestGetTimetable,
     getLocationById as requestGetLocationById,
     getSetCardsByCode as requestGetSetCardsByCode,
@@ -147,6 +148,27 @@ export function getNewsList() {
                 ]));
             })
             .catch((e) => dispatch(appContextTypes.appNewsRequestFailed(e)));
+    };
+}
+
+export function getStands() {
+    return (dispatch, getState) => {
+        const state = getState();
+
+        if (Object.keys(state.appContext.Stands.data).length > 0) {
+            return Promise.resolve();
+        }
+
+        dispatch(appContextTypes.appStandsRequestStarted());
+
+        return requestGetStands()
+            .then(stands => {
+                dispatch(batchActions([
+                    mtgApiTypes.addStands(stands),
+                    appContextTypes.appStandsRequestSuccess(),
+                ]));
+            })
+            .catch((e) => dispatch(appContextTypes.appStandsRequestFailed(e)));
     };
 }
 

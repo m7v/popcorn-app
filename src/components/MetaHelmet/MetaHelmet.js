@@ -31,72 +31,72 @@ class MetaHelmet extends React.PureComponent {
             case 'decks':
                 return (
                     <Helmet>
-                        <title>{'Decks | MTG Manager'}</title>
-                        <meta name="twitter:title" content={'Decks | MTG Manager'} />
-                        <meta property="og:title" content={'Decks | MTG Manager'} />
+                        <title>{'Decks | Popcorn Festival'}</title>
+                        <meta name="twitter:title" content={'Decks | Popcorn Festival'} />
+                        <meta property="og:title" content={'Decks | Popcorn Festival'} />
                     </Helmet>
                 );
             case 'favorites':
                 return (
                     <Helmet>
-                        <title>{'Favorites | MTG Manager'}</title>
-                        <meta name="twitter:title" content={'Favorites | MTG Manager'} />
-                        <meta property="og:title" content={'Favorites | MTG Manager'} />
+                        <title>{'Favorites | Popcorn Festival'}</title>
+                        <meta name="twitter:title" content={'Favorites | Popcorn Festival'} />
+                        <meta property="og:title" content={'Favorites | Popcorn Festival'} />
                     </Helmet>
                 );
             case 'deckbuilder':
                 return (
                     <Helmet>
-                        <title>{'Deck builder | MTG Manager'}</title>
+                        <title>{'Deck builder | Popcorn Festival'}</title>
                         <link rel="canonical" href={'https://m7v.github.io/suggester/#/browse'} />
-                        <meta name="twitter:title" content={'Deck builder | MTG Manager'} />
-                        <meta property="og:title" content={'Deck builder | MTG Manager'} />
+                        <meta name="twitter:title" content={'Deck builder | Popcorn Festival'} />
+                        <meta property="og:title" content={'Deck builder | Popcorn Festival'} />
                     </Helmet>
                 );
             case 'sets':
                 return (
                     <Helmet>
-                        <title>{'Sets | MTG Manager'}</title>
+                        <title>{'Sets | Popcorn Festival'}</title>
                         <link rel="canonical" href={'https://m7v.github.io/suggester/#/browse'} />
-                        <meta name="twitter:title" content={'Sets | MTG Manager'} />
-                        <meta property="og:title" content={'Sets | MTG Manager'} />
+                        <meta name="twitter:title" content={'Sets | Popcorn Festival'} />
+                        <meta property="og:title" content={'Sets | Popcorn Festival'} />
                     </Helmet>
                 );
             case 'set':
                 return (
                     !isEmpty(set) &&
                         <Helmet>
-                            <title>{`${set.name} | MTG Manager`}</title>
+                            <title>{`${set.name} | Popcorn Festival`}</title>
                             <link rel="canonical" href={`https://m7v.github.io/suggester/#/browse/${set.code}`} />
-                            <meta name="twitter:title" content={`${set.name} | MTG Manager`} />
+                            <meta name="twitter:title" content={`${set.name} | Popcorn Festival`} />
                         </Helmet>
                 );
             case 'card':
                 return (
                     !isEmpty(card) &&
                         <Helmet>
-                            <title>{`${card.name} | MTG Manager`}</title>
+                            <title>{`${card.name} | Popcorn Festival`}</title>
                             <link rel="canonical" href={`https://m7v.github.io/suggester/#/cards/${card.id}`} />
                             <meta name="twitter:image" content={card.imageUrl} />
-                            <meta name="twitter:title" content={`${card.name} | MTG Manager`} />
+                            <meta name="twitter:title" content={`${card.name} | Popcorn Festival`} />
                             <meta property="og:image" content={card.imageUrl} />
-                            <meta property="og:title" content={`${card.name} | MTG Manager`} />
+                            <meta property="og:title" content={`${card.name} | Popcorn Festival`} />
                         </Helmet>
                 );
             case 'search':
                 return (
                     <Helmet>
-                        <title>{'Search Card | MTG Manager'}</title>
-                        <meta name="twitter:title" content={'Search Card | MTG Manager'} />
-                        <meta property="og:title" content={'Search Card | MTG Manager'} />
+                        <title>{'Search Card | Popcorn Festival'}</title>
+                        <meta name="twitter:title" content={'Search Card | Popcorn Festival'} />
+                        <meta property="og:title" content={'Search Card | Popcorn Festival'} />
                     </Helmet>
                 );
             default:
                 return (
                     <Helmet>
-                        <title>{'MTG Manager'}</title>
-                        <meta name="twitter:title" content={'MTG Manager'} />
-                        <meta property="og:title" content={'MTG Manager'} />
+                        <title>{'Popcorn Festival'}</title>
+                        <meta name="twitter:title" content={'Popcorn Festival'} />
+                        <meta property="og:title" content={'Popcorn Festival'} />
                     </Helmet>
                 );
         }

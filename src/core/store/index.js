@@ -75,6 +75,11 @@ const initialState = {
             loading: false,
             error: false,
         },
+        Stands: {
+            data: [],
+            loading: false,
+            error: false,
+        },
         Timetable: {
             data: [],
             filters: {
