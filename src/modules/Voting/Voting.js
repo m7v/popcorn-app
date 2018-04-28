@@ -74,7 +74,7 @@ class Voting extends React.Component {
                                 onChange={this.handleChangeTicketCode}
                             />
                         </FormControl>
-                        {this.state.ticketCode &&
+                        {(this.state.ticketCode || this.props.ticketCode) &&
                             <FormControl className='Voting__form'>
                                 <InputLabel htmlFor="standVote">Выбери стенд</InputLabel>
                                 <Select
