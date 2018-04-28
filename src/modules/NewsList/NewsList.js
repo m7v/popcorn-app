@@ -62,12 +62,10 @@ class NewsList extends React.PureComponent {
                 </DialogActions>
                 <DialogContent className="NewsList__drawer">
                     {this.props.news[this.state.newsId] && this.props.news[this.state.newsId].text &&
-                        <Typography component="p" align="left">
-                            <div
-                                className="NewsList__blockDescription"
-                                dangerouslySetInnerHTML={{ __html: this.props.news[this.state.newsId].text }}
-                            />
-                        </Typography>
+                        <div
+                            className="NewsList__blockDescription"
+                            dangerouslySetInnerHTML={{ __html: this.props.news[this.state.newsId].text }}
+                        />
                     }
                 </DialogContent>
             </Dialog>

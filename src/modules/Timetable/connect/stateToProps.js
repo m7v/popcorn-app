@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import sortBy from 'lodash/sortBy';
 import {
     createEventFilter,
     getActivePopcornFilter,
@@ -15,10 +16,9 @@ const getEventsByFilter = createSelector(
     [eventSelector, getTagsFilter],
     (events, rarityFilter) => {
         const selectedRarityFilters = getActivePopcornFilter(rarityFilter);
-
         const filterByTags = createEventFilter(selectedRarityFilters, 'tags');
 
-        return filterByTags(events);
+        return sortBy(filterByTags(events), (event) => event.period.startTime);
     }
 );
 

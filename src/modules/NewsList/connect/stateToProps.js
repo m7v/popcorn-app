@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import sortBy from 'lodash/sortBy';
 import {
     createEventFilter,
     getActivePopcornFilter,
@@ -15,10 +16,9 @@ const getNewsByFilter = createSelector(
     [newsListSelector, getTagsFilter],
     (events, tagsFilter) => {
         const selectedTagsFilters = getActivePopcornFilter(tagsFilter);
-
         const filterByTags = createEventFilter(selectedTagsFilters, 'tags');
 
-        return filterByTags(events);
+        return sortBy(filterByTags(events), (event) => event.date);
     }
 );
 
