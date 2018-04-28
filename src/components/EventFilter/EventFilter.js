@@ -3,6 +3,7 @@ import React from 'react';
 import { func, shape, string, number } from 'prop-types';
 import classNames from 'classnames';
 import map from 'lodash/map';
+import values from 'lodash/values';
 import reduce from 'lodash/reduce';
 import isEmpty from 'lodash/isEmpty';
 import compact from 'lodash/compact';
@@ -67,7 +68,7 @@ class EventFilter extends React.Component {
 
     render() {
         const { tags, className, currentSet, resultCount } = this.props;
-        const hasTagsFilter = compact(Object.values(tags)).length;
+        const hasTagsFilter = compact(values(tags)).length;
         const iconStyle = classNames({
             'EventFilter__icon': true,
             '_active': hasTagsFilter
