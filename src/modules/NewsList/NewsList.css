@@ -180,3 +180,17 @@
     bottom: 65px;
     z-index: 0;
 }
+
+.NewsList__readNews {
+    color: #e0d100;
+    text-decoration: none;
+    padding: 5px 0 20px;
+    display: block;
+}
+
+.NewsList__readNews:hover {
+    color: #928400;
+    text-decoration: none;
+    padding: 5px 0 20px;
+    display: block;
+}

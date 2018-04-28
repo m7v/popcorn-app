@@ -307,18 +307,27 @@ export const addTicket = (ticket) => {
     return Promise.resolve();
 };
 
+export const setVote = (locationId, ticketCode) => {
+    return popcornInstance.post('vote', {
+        key: ticketCode,
+        locationID: Number(locationId)
+    }).catch(() => {
+
+    });
+};
+
 export const getTicket = () =>
     Promise.resolve(getTicketCode());
 
 export const getStands = () =>
-popcornInstance.get('stands')
-    .then(response => response.data)
-    .then(stands => stands.map(stand => ({
-        ...stand,
-    })))
-    .catch(() => {
-        return JSON.parse(
-            '[{"locationID": "4","title": "Новая реальность","image": "https://pp.userapi.com/c844723/v844723747/3b84e/9DxffBowV24.jpg","description": "увлекательные игры на старых-добрых Dendy 8 bit, Sega Mega Drive, Sega Dreamcast, Xbox Original, Playstation 2 и Playstation 3. А также турниры с ценными призами, фотозона с другом детства и квест для настоящих знатоков. Только 29 апреля!","type": "stand","show_events": "1"}\n' +
-            ']'
-        );
-    });
+    popcornInstance.get('stands')
+        .then(response => response.data)
+        .then(stands => stands.map(stand => ({
+            ...stand,
+        })))
+        .catch(() => {
+            return JSON.parse(
+                '[{"locationID": "4","title": "Новая реальность","image": "https://pp.userapi.com/c844723/v844723747/3b84e/9DxffBowV24.jpg","description": "увлекательные игры на старых-добрых Dendy 8 bit, Sega Mega Drive, Sega Dreamcast, Xbox Original, Playstation 2 и Playstation 3. А также турниры с ценными призами, фотозона с другом детства и квест для настоящих знатоков. Только 29 апреля!","type": "stand","show_events": "1"}\n' +
+                ']'
+            );
+        });

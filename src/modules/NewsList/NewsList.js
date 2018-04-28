@@ -8,6 +8,8 @@ import classNames from 'classnames';
 import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import Chip from 'material-ui/Chip';
+import Dialog, { DialogActions, DialogContent } from 'material-ui/Dialog';
+import Button from 'material-ui/Button';
 import Loader from '../../components/Loader';
 import MetaHelmet from '../../components/MetaHelmet';
 import stateToProps from './connect/stateToProps';
@@ -18,25 +20,57 @@ import SimpleImg from '../../components/SimpleImg';
 
 class NewsList extends React.PureComponent {
 
-    state = {
-        blocks: {}
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false,
+            newsId: '',
+        };
+    }
 
     componentWillMount() {
         this.props.getNewsList();
     }
 
-    openBlock = (title) => {
+    handleOpenNews = (newsId) => {
         this.setState({
-            blocks: {
-                ...this.state.blocks,
-                [title]: !this.state.blocks[title]
-            }
+            open: true,
+            newsId
+        });
+    };
+
+    handleClose = () => {
+        this.setState({
+            open: false,
+            newsId: ''
         });
     };
 
     renderNews = () => map(this.props.news, (oneNews, index) => (
         <div key={index} className="NewsList__result">
+            <Dialog
+                fullScreen
+                open={this.state.open}
+                onRequestClose={this.handleClose}
+            >
+                <DialogActions className="NewsList__actions">
+                    <Button className="NewsList__closeButton" color="primary" onClick={this.handleClose}>
+                        <span className="NewsList__button">
+                            Закрыть
+                        </span>
+                    </Button>
+                </DialogActions>
+                <DialogContent className="NewsList__drawer">
+                    {this.props.news[this.state.newsId] && this.props.news[this.state.newsId].text &&
+                        <Typography component="p" align="left">
+                            <div
+                                className="NewsList__blockDescription"
+                                dangerouslySetInnerHTML={{ __html: this.props.news[this.state.newsId].text }}
+                            />
+                        </Typography>
+                    }
+                </DialogContent>
+            </Dialog>
             <Card>
                 <div className="NewsList__blockImage">
                     <SimpleImg imageUrl={oneNews.image} />
@@ -45,9 +79,11 @@ class NewsList extends React.PureComponent {
                     <Typography type="headline" component="h2">
                         {oneNews.title}
                     </Typography>
-                    <Typography component="p" align="left">{oneNews.text}</Typography>
+                    <div className="NewsList__readNews" onClick={() => this.handleOpenNews(index)} >
+                        Читать
+                    </div>
                     <div className="NewsList__chips">
-                        {oneNews.tags && oneNews.tags.map((tag, id) => (
+                        {map(oneNews.tags, (tag, id) => (
                             <Chip
                                 key={id}
                                 label={tag.toUpperCase()}

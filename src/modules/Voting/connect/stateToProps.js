@@ -9,7 +9,6 @@ const getStandsToState = function(state) {
 export default function stateToProps(state) {
     return {
         ticketCode: getTicketCode(state),
-        stands: getStandsToState(state),
-        votedID: 1
+        stands: getStandsToState(state)
     };
 }

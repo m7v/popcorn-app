@@ -1,145 +1,119 @@
 import './Voting.css';
 import React from 'react';
-import { shape, string, func } from 'prop-types';
+import { shape, arrayOf, string, func } from 'prop-types';
 import { connect } from 'react-redux';
 import dispatchToProps from './connect/dispatchToProps';
 import stateToProps from './connect/stateToProps';
-import classNames from 'classnames';
-import Dialog, { DialogActions, DialogContent } from 'material-ui/Dialog';
-import Button from 'material-ui/Button';
 import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import { FormControl } from 'material-ui/Form';
+import IconButton from 'material-ui/IconButton';
+import IconFavoriteBorder from 'material-ui-icons/FavoriteBorder';
+import IconFavorite from 'material-ui-icons/Favorite';
 import Select from 'material-ui/Select';
-import EasterEgg from 'react-easter-egg';
-import Konami from 'react-konami';
-import logo from './assets/logo_header.png';
-import withRouter from 'react-router-dom/withRouter';
-import Typography from 'material-ui/Typography';
+import thx from './assets/thx.png';
 import map from 'lodash/map';
-
-const menuItems = {
-    en: [
-        {
-            name: 'Map',
-            path: '/map',
-        },
-        {
-            name: 'News',
-            path: '/news',
-        },
-        {
-            name: 'Schedule',
-            path: '/timetable',
-        },
-        {
-            name: 'Enter code',
-            path: '/enter_code',
-        },
-    ],
-    ru: [
-        {
-            name: 'Карта',
-            path: '/map',
-        },
-        {
-            name: 'Новости',
-            path: '/news',
-        },
-        {
-            name: 'Расписание',
-            path: '/timetable',
-        },
-        {
-            name: 'Введите код',
-            path: '/enter_code',
-        },
-    ]
-};
-
-const screenText = {
-    en: {
-        enterCode: 'Welcome to Popcorn!<br />Please enter your ticker code<br />',
-        saveButton: 'Save',
-        closeButton: 'Close',
-    },
-    ru: {
-        enterCode: 'Добро пожаловать на Popcorn!<br />Введи номер своего билета<br />',
-        saveButton: 'Сохранить',
-        closeButton: 'Закрыть',
-    }
-};
 
 class Voting extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            open: false,
-            showCode: false,
-            language: 'en',
-            ticketCode: props.ticketCode,
-            votedID: props.votedID,
+            voteId: '',
+            ticketCode: '',
+            isVoted: false,
         };
     }
 
     componentWillMount() {
         this.props.getTicketCode();
         this.props.getStands();
-        console.log(this.props);
     }
 
-    toogleLang = (language) => {
-        this.setState({
-            language
-        });
+    componentWillUpdate(nextProps) {
+        if (this.props.ticketCode !== nextProps.ticketCode) {
+            this.setState({
+                ticketCode: nextProps.ticketCode
+            });
+        }
+    }
+
+    handleChange = event => {
+        if (event.target.value) {
+            this.setState({ voteId: event.target.value });
+        }
     };
 
-
-    handleOpen = () => {
-        this.setState({ open: true });
+    handleChangeTicketCode = event => {
+        this.setState({ ticketCode: event.target.value });
     };
 
-    handleClose = () => {
-        this.setState({ open: false });
+    handleToggle = () => {
+        this.props.appSetVote(this.state.voteId, this.state.ticketCode);
+        this.setState({ isVoted: !this.state.isVoted });
     };
 
-    handleChange = () => {
-            // todo
-    };
-
-
-    renderSelectList = () => map(this.props.stands, (stand, index) => (
+    renderSelectList = () => map(this.props.stands, (stand) => (
         <MenuItem key={stand.locationID} value={stand.locationID}>{stand.title}</MenuItem>
     ));
 
     render() {
         return (
-            
             <div className="Voting__root">
-                <div className="Voting__logoWrapper">
-                    <img src={logo} alt="logo" className="KonamiScreen__logo" />
-                    <Typography paragraph type="headline" component="h2">
+                {!this.state.isVoted &&
+                    <div className="Voting__container">
+                        <h5 className="Voting__welcomeText">
                             Проголосуй за стенд, который понравился тебе больше всего!
-                        </Typography>
-                </div>
-                <InputLabel htmlFor="standVote">Выбери стенд</InputLabel>
-                <Select
-                    value={this.state.votedID}
-                    onChange={this.handleChange}
-                    inputProps={{
-                    name: 'standVote',
-                    id: 'standVote',
-                    className: 'Voting__blahblah',
-                    }}
-                >
-                    <MenuItem value="">
-                    <em>Выбрать стенд</em>
-                    </MenuItem>
-                    { this.renderSelectList() }
-                </Select>
-                
-                
+                        </h5>
+                        <FormControl className='Voting__form'>
+                            <InputLabel htmlFor="name-input">Номер билета</InputLabel>
+                            <Input
+                                id="name-input"
+                                value={this.state.ticketCode || this.props.ticketCode}
+                                onChange={this.handleChangeTicketCode}
+                            />
+                        </FormControl>
+                        {this.state.ticketCode &&
+                            <FormControl className='Voting__form'>
+                                <InputLabel htmlFor="standVote">Выбери стенд</InputLabel>
+                                <Select
+                                    value={this.state.voteId}
+                                    onChange={this.handleChange}
+                                    inputProps={{
+                                        name: 'standVote',
+                                        id: 'standVote',
+                                        className: 'Voting__voting',
+                                    }}
+                                >
+                                    <MenuItem value="">
+                                        <em>Выбрать стенд</em>
+                                    </MenuItem>
+                                    { this.renderSelectList() }
+                                </Select>
+                            </FormControl>
+                        }
+                        {this.state.voteId &&
+                            <IconButton className="Voting__button" onClick={this.handleToggle}>
+                                <div>ЖМИ!</div>
+                                <div className="Voting__buttonIcon">
+                                    {!this.state.isVoted &&
+                                        <IconFavoriteBorder />
+                                    }
+                                    {this.state.isVoted &&
+                                        <IconFavorite />
+                                    }
+                                </div>
+                            </IconButton>
+                        }
+                    </div>
+                }
+                {this.state.isVoted &&
+                    <div>
+                        <img className="Voting__thxImg" src={thx} alt="" />
+                        <div className="Voting__thankYou">Cпасибо!</div>
+                    </div>
+                }
             </div>
         );
     }
@@ -147,16 +121,15 @@ class Voting extends React.Component {
 
 
 Voting.propTypes = {
-    history: shape({}).isRequired,
-    getTicketCode: func.isRequired,
+    stands: arrayOf(shape({})),
+    appSetVote: func.isRequired,
     getStands: func.isRequired,
-    ticketCode: string,
+    getTicketCode: func.isRequired,
+    ticketCode: string.isRequired,
 };
 
 Voting.defaultProps = {
-    ticketCode: '',
-    votedID: 0,
     stands: [],
 };
 
-export default withRouter(connect(stateToProps, dispatchToProps)(Voting));
+export default connect(stateToProps, dispatchToProps)(Voting);

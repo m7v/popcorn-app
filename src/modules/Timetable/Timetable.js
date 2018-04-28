@@ -38,45 +38,46 @@ class Timetable extends React.PureComponent {
 
     renderSchedule = () => map(this.props.timetable, (timetable, index) => (
         <div key={index} className="Timetable__result">
-            <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
-                <Card>
-                    {timetable.image &&
-                        <div className="Timetable__blockImage">
-                            <SimpleImg imageUrl={timetable.image} />
-                        </div>
-                    }
-                    <div>
-                        <Typography paragraph type="headline" component="h5">
-                            {timetable.title}
-                        </Typography>
-                        <Typography paragraph>
-                            { timetable.period && this.getDate(timetable.period) }
-                        </Typography>
-                        <Typography paragraph component="p" align="left">
-                            <div
-                                className="Timetable__blockDescription"
-                                dangerouslySetInnerHTML={{ __html: this.format(timetable) }}
-                            />
-                        </Typography>
-                        <div className="Timetable__chips">
-                            {timetable.tags && timetable.tags.map((tag, id) => (
-                                <Chip
-                                    key={id}
-                                    label={tag.toUpperCase()}
-                                    className={
-                                        classNames({
-                                            'Timetable__chip': true,
-                                            '_cyber': tag === 'cyber',
-                                            '_geek': tag === 'geek',
-                                            '_show': tag === 'show',
-                                        })
-                                    }
-                                />
-                            ))}
-                        </div>
+            <Card>
+                {timetable.image &&
+                    <div className="Timetable__blockImage">
+                        <SimpleImg imageUrl={timetable.image} />
                     </div>
-                </Card>
-            </Link>
+                }
+                <div>
+                    <Typography paragraph type="headline" component="h5">
+                        {timetable.title}
+                    </Typography>
+                    <Typography paragraph>
+                        { timetable.period && this.getDate(timetable.period) }
+                    </Typography>
+                    <Typography paragraph component="p" align="left">
+                        <div
+                            className="Timetable__blockDescription"
+                            dangerouslySetInnerHTML={{ __html: this.format(timetable) }}
+                        />
+                    </Typography>
+                    <Link className="Timetable__location" to={`/location/${timetable.locationID}`}>
+                        Перейти к локации
+                    </Link>
+                    <div className="Timetable__chips">
+                        {timetable.tags && timetable.tags.map((tag, id) => (
+                            <Chip
+                                key={id}
+                                label={tag.toUpperCase()}
+                                className={
+                                    classNames({
+                                        'Timetable__chip': true,
+                                        '_cyber': tag === 'cyber',
+                                        '_geek': tag === 'geek',
+                                        '_show': tag === 'show',
+                                    })
+                                }
+                            />
+                        ))}
+                    </div>
+                </div>
+            </Card>
         </div>
     ));
 

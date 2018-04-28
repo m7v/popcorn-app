@@ -8,6 +8,25 @@
     user-select: none;
 }
 
+.Voting__container {
+    width: 100vw;
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    user-select: none;
+}
+
+.Voting__formSelect {
+    min-width: 300px;;
+    width: 300px;
+}
+
+.Voting__form {
+    min-width: 300px;
+}
+
 .Voting__switcher {
     font-family: "PressStart2P";
     font-size: 10px;
@@ -40,19 +59,11 @@
 }
 
 .Voting__welcomeText {
+    width: 300px;
+    font-size: 14px;
+    line-height: 30px;
     color: #e2e2e2;
     font-family: "PressStart2P";
-}
-
-.Voting__copyRight {
-    font-size: 0.7em;
-    padding: 10px 0 0;
-}
-
-.Voting__esterHint {
-    user-select: text;
-    color: #2d2d2d;
-    cursor: pointer;
 }
 
 .Voting__selectMenu {
@@ -129,6 +140,25 @@
 }
 
 .Voting__button {
+    margin-top: 30px;
+    font-size: 12px;
+    min-width: 300px;
     font-family: "PressStart2P";
     color: #e2cf32;
+}
+
+.Voting__buttonIcon {
+    padding: 10px;
+}
+
+.Voting__thankYou {
+    font-size: 20px;
+    line-height: 40px;
+    min-width: 300px !important;
+    font-family: "PressStart2P";
+    color: #e2cf32;
+}
+
+.Voting__thxImg {
+    max-width: 200px;
 }

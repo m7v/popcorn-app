@@ -1,5 +1,5 @@
 import * as types from './appContext.types';
-import { addTicket, getTicket } from '../../services/mtgApi/mtgApi.service';
+import { setVote, addTicket, getTicket } from '../../services/mtgApi/mtgApi.service';
 
 /**
  * @returns {function(*)}Success
@@ -25,8 +25,8 @@ export function appSetNewsTagsFilter(eventTag) {
     return dispatch => dispatch(types.appSetNewsTagsFilter(eventTag));
 }
 
-export function appSetVote(vote) {
-    return dispatch => dispatch(types.appSetVote(vote));
+export function appSetVote(locationId, ticketCode) {
+    return () => setVote(locationId, ticketCode);
 }
 
 export function saveTicketCode(ticketCode) {
