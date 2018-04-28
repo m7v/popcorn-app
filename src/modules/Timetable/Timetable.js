@@ -7,7 +7,6 @@ import map from 'lodash/map';
 import moment from 'moment';
 import classNames from 'classnames';
 import Link from 'react-router-dom/Link';
-import Card from 'material-ui/Card';
 import Chip from 'material-ui/Chip';
 import Typography from 'material-ui/Typography';
 import Loader from '../../components/Loader';
@@ -38,7 +37,7 @@ class Timetable extends React.PureComponent {
 
     renderSchedule = () => map(this.props.timetable, (timetable, index) => (
         <div key={index} className="Timetable__result">
-            <Card>
+            <div>
                 {timetable.image &&
                     <div className="Timetable__blockImage">
                         <SimpleImg imageUrl={timetable.image} />
@@ -77,7 +76,7 @@ class Timetable extends React.PureComponent {
                         ))}
                     </div>
                 </div>
-            </Card>
+            </div>
         </div>
     ));
 

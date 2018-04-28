@@ -34,8 +34,9 @@
 
 .NewsList__result {
     width: 300px;
-    padding: 10px;
     user-select: none;
+    background-color: #2d2d2d;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 10px, rgba(0, 0, 0, 0.23) 0 3px 10px;
 }
 
 .NewsList__main {

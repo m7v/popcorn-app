@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { bool, arrayOf, shape, func } from 'prop-types';
 import map from 'lodash/map';
 import classNames from 'classnames';
-import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import Chip from 'material-ui/Chip';
 import Dialog, { DialogActions, DialogContent } from 'material-ui/Dialog';
@@ -69,11 +68,11 @@ class NewsList extends React.PureComponent {
                     }
                 </DialogContent>
             </Dialog>
-            <Card>
+            <div>
                 <div className="NewsList__blockImage">
                     <SimpleImg imageUrl={oneNews.image} />
                 </div>
-                <CardContent>
+                <div>
                     <Typography type="headline" component="h2">
                         {oneNews.title}
                     </Typography>
@@ -96,8 +95,8 @@ class NewsList extends React.PureComponent {
                             />
                         ))}
                     </div>
-                </CardContent>
-            </Card>
+                </div>
+            </div>
         </div>
     ));
 
