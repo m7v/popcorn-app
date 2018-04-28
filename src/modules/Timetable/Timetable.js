@@ -7,7 +7,7 @@ import map from 'lodash/map';
 import moment from 'moment';
 import classNames from 'classnames';
 import Link from 'react-router-dom/Link';
-import Card, { CardContent } from 'material-ui/Card';
+import Card from 'material-ui/Card';
 import Chip from 'material-ui/Chip';
 import Typography from 'material-ui/Typography';
 import Loader from '../../components/Loader';
@@ -34,6 +34,8 @@ class Timetable extends React.PureComponent {
         return `${startTime} - ${endTime}`;
     };
 
+    format = (timetable) => timetable.description;
+
     renderSchedule = () => map(this.props.timetable, (timetable, index) => (
         <div key={index} className="Timetable__result">
             <Link className="Timetable__set" to={`/location/${timetable.locationID}`}>
@@ -43,17 +45,18 @@ class Timetable extends React.PureComponent {
                             <SimpleImg imageUrl={timetable.image} />
                         </div>
                     }
-                    <CardContent>
-                        <Typography paragraph type="headline" component="h2">
+                    <div>
+                        <Typography paragraph type="headline" component="h5">
                             {timetable.title}
                         </Typography>
                         <Typography paragraph>
                             { timetable.period && this.getDate(timetable.period) }
                         </Typography>
                         <Typography paragraph component="p" align="left">
-                            <div className="Timetable__blockDescription">
-                                {timetable.description}
-                            </div>
+                            <div
+                                className="Timetable__blockDescription"
+                                dangerouslySetInnerHTML={{ __html: this.format(timetable) }}
+                            />
                         </Typography>
                         <div className="Timetable__chips">
                             {timetable.tags && timetable.tags.map((tag, id) => (
@@ -71,7 +74,7 @@ class Timetable extends React.PureComponent {
                                 />
                             ))}
                         </div>
-                    </CardContent>
+                    </div>
                 </Card>
             </Link>
         </div>

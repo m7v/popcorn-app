@@ -77,22 +77,34 @@
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: nowrap;
+    max-height: 600px;
     max-width: 600px;
     margin: 10px 0 50px;
     background-color: #424242;
-    height: 100%;
+}
+
+.LocationInfo__containerScroll {
+    max-height: 380px;
+    height: 40vh;
     overflow: auto;
+    margin: 15px 0 30px;
+    padding: 0 10px;
     -webkit-overflow-scrolling: touch;
 }
 
-.LocationInfo__container::-webkit-scrollbar-track {
+.LocationInfo__containerScroll::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #696969;
 }
 
-.LocationInfo__container::-webkit-scrollbar {
+.LocationInfo__containerScroll::-webkit-scrollbar {
     width: 10px;
     background-color: #696969;
+}
+
+.LocationInfo__containerScroll::-webkit-scrollbar-thumb {
+    background-color: #303030;
+    border: 2px solid #303030;
 }
 
 .LocationInfo__fullInfo {
@@ -106,7 +118,7 @@
 }
 
 .LocationInfo__card {
-    padding: 15px;
+    min-width: 300px;
 }
 
 .LocationInfo__artist {
@@ -149,7 +161,15 @@
 
 .LocationInfo__blockImage {
     width: 100%;
-    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.LocationInfo__cover {
+    width: 300px;
+    height: 170px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.47);
 }
 
 .LocationInfo__chips {
@@ -179,10 +199,27 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .LocationInfo__event {
 
+}
+
+.LocationInfo__event._current {
+    background-color: #fdfe2a;
+}
+
+.LocationInfo__eventText._current {
+    color: #3a3a3a;
+}
+
+.LocationInfo__eventText._current > h3 {
+    color: #3a3a3a;
+}
+
+.LocationInfo__eventText._current > p {
+    color: #3a3a3a;
 }
 
 .LocationInfo__cardBlock {

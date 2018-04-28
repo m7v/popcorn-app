@@ -69,27 +69,41 @@ class LocationInfo extends React.PureComponent {
                         <div className="LocationInfo__card">
                             {location.image &&
                                 <div className="LocationInfo__blockImage">
+                                    <div className="LocationInfo__cover" />
                                     <SimpleImg imageUrl={location.image} />
                                 </div>
                             }
-                            <div>
-                                <Typography type="headline" component="h2">
-                                    {location.title}
-                                </Typography>
+                            <Typography type="headline" component="h2">
+                                {location.title}
+                            </Typography>
+                            <div className="LocationInfo__containerScroll">
                                 <Typography component="p" align="center">
                                     {location.description}
                                 </Typography>
 
                                 <List className="LocationInfo__eventList">
                                     {map(location.events, (event) => (
-                                        <ListItem key={event.id} className="LocationInfo__event">
+                                        <ListItem
+                                            key={event.id}
+                                            className={classNames({
+                                                'LocationInfo__event': true,
+                                                '_current': !!event.isCurrent,
+                                            })}
+                                        >
                                             <ListItemText
                                                 primary={event.title}
                                                 secondary={this.getDate(event.period)}
+                                                className={classNames({
+                                                    'LocationInfo__eventText': true,
+                                                    '_current': !!event.isCurrent,
+                                                })}
                                             />
                                         </ListItem>
                                     ))}
                                 </List>
+                                <div>
+
+                                </div>
                             </div>
                         </div>
                     </div>

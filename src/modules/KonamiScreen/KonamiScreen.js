@@ -23,7 +23,7 @@ const menuItems = {
             path: '/news',
         },
         {
-            name: 'Timetable',
+            name: 'Schedule',
             path: '/timetable',
         },
         {
@@ -80,14 +80,6 @@ class KonamiScreen extends React.Component {
         this.props.getTicketCode();
     }
 
-    componentWillUpdate(nextProps) {
-        if (this.props.ticketCode !== nextProps.ticketCode) {
-            this.setState({
-                ticketCode: nextProps.ticketCode
-            });
-        }
-    }
-
     toogleLang = (language) => {
         this.setState({
             language
@@ -114,7 +106,10 @@ class KonamiScreen extends React.Component {
 
     handleEnterCodeSave = () => {
         this.props.saveTicketCode(this.state.ticketCode);
-        this.setState({ showCode: false });
+        this.setState({
+            ticketCode: this.state.ticketCode,
+            showCode: false
+        });
     };
 
     handleEnterCodeClose = () => {
