@@ -36,6 +36,7 @@ import {
 
     APP_NEWS_ADD_NEWS,
     APP_LOCATION_ADD_LOCATION,
+    APP_STANDS_ADD_STANDS,
     APP_TIMETABLE_ADD_SCHEDULE,
     APP_NEWS_REQUEST_STARTED,
     APP_NEWS_REQUEST_SUCCESS,
@@ -46,6 +47,9 @@ import {
     APP_LOCATION_REQUEST_STARTED,
     APP_LOCATION_REQUEST_SUCCESS,
     APP_LOCATION_REQUEST_FAILED,
+    APP_STANDS_REQUEST_STARTED,
+    APP_STANDS_REQUEST_SUCCESS,
+    APP_STANDS_REQUEST_FAILED,
 } from './appContext.helper';
 
 /**
@@ -445,6 +449,37 @@ function appNewsRequestFailed(state) {
     };
 }
 
+function appStandsRequestStarted(state) {
+    return {
+        ...state,
+        Stands: {
+            ...state.Stands,
+            loading: true,
+            error: false
+        }
+    };
+}
+function appStandsRequestSuccess(state) {
+    return {
+        ...state,
+        Stands: {
+            ...state.Stands,
+            loading: false,
+            error: false
+        }
+    };
+}
+function appStandsRequestFailed(state) {
+    return {
+        ...state,
+        Stands: {
+            ...state.Stands,
+            loading: false,
+            error: true
+        }
+    };
+}
+
 function appCardSetsRequestStarted(state) {
     return {
         ...state,
@@ -566,6 +601,16 @@ function appLocationAddLocation(state, location) {
                     ...location
                 }
             }
+        }
+    };
+}
+
+function appStandsAddStands(state, stands) {
+    return {
+        ...state,
+        Stands: {
+            ...state.Stands,
+            data: stands
         }
     };
 }
@@ -707,6 +752,14 @@ export default (state = {}, action) => {
             return appLocationRequestFailed(state);
         case APP_CARDSET_ADD_CARDS:
             return appCardSetsAddCards(state, action.payload.setCode, action.payload.cards);
+        case APP_STANDS_ADD_STANDS:
+            return appStandsAddStands(state, action.payload.stands);
+        case APP_STANDS_REQUEST_STARTED:
+            return appStandsRequestStarted(state);
+        case APP_STANDS_REQUEST_SUCCESS:
+            return appStandsRequestSuccess(state);
+        case APP_STANDS_REQUEST_FAILED:
+            return appStandsRequestFailed(state);
         default:
             return state;
     }

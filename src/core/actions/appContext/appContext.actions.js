@@ -25,6 +25,10 @@ export function appSetNewsTagsFilter(eventTag) {
     return dispatch => dispatch(types.appSetNewsTagsFilter(eventTag));
 }
 
+export function appSetVote(vote) {
+    return dispatch => dispatch(types.appSetVote(vote));
+}
+
 export function saveTicketCode(ticketCode) {
     return dispatch =>
         addTicket(ticketCode)

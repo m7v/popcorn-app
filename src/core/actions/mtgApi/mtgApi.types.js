@@ -4,7 +4,8 @@ import {
 
     APP_NEWS_ADD_NEWS,
     APP_LOCATION_ADD_LOCATION,
-    APP_TIMETABLE_ADD_SCHEDULE
+    APP_TIMETABLE_ADD_SCHEDULE,
+    APP_STANDS_ADD_STANDS
 } from '../../../core/reducers/appContext/appContext.helper';
 
 export function addSetCards(setCode, cards) {
@@ -43,6 +44,14 @@ export function addLocation(location) {
     return {
         type: APP_LOCATION_ADD_LOCATION,
         payload: {location},
+        meta: {}
+    };
+}
+
+export function addStands(stands) {
+    return {
+        type: APP_STANDS_ADD_STANDS,
+        payload: {stands},
         meta: {}
     };
 }

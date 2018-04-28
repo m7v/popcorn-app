@@ -40,7 +40,7 @@ const navbarConfig = [
         label: 'Timetable',
     },
     {
-        path: '/1',
+        path: '/vote',
         icon: starIcon,
         label: 'Voting',
     }
