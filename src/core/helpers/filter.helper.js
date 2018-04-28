@@ -1,5 +1,6 @@
 import intersection from 'lodash/intersection';
 import sortBy from 'lodash/sortBy';
+import includes from 'lodash/includes';
 
 const popcornMap = {
     geek: 'geek',
@@ -36,7 +37,7 @@ const filters = {
 
     types: selectedFilters => card => !!intersection(card.types, selectedFilters).length,
 
-    rarity: selectedFilters => card => selectedFilters.includes(card.rarity),
+    rarity: selectedFilters => card => includes(selectedFilters, card.rarity),
 
     tags: selectedFilters => event => intersection(event.tags, selectedFilters).length > 0,
 };

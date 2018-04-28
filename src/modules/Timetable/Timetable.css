@@ -33,6 +33,24 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0 3px 10px, rgba(0, 0, 0, 0.23) 0 3px 10px;
 }
 
+.Timetable__result._current {
+    background-color: #ffeb3b;
+}
+
+.Timetable__result._current h5,
+.Timetable__result._current p,
+.Timetable__result._current div {
+    color: #222;
+}
+
+.Timetable__result._current .Timetable__location {
+    color: #e00e24;
+}
+
+.Timetable__result._current .Timetable__location:hover {
+    color: #92051d;
+}
+
 .Timetable__main {
     min-height: 100vh;
     align-items: center;

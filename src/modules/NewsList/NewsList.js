@@ -83,7 +83,7 @@ class NewsList extends React.PureComponent {
                         {map(oneNews.tags, (tag, id) => (
                             <Chip
                                 key={id}
-                                label={tag.toUpperCase()}
+                                label={`#${tag.toUpperCase()}`}
                                 className={
                                     classNames({
                                         'NewsList__chip': true,

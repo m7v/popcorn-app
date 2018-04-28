@@ -36,7 +36,13 @@ class Timetable extends React.PureComponent {
     format = (timetable) => timetable.description;
 
     renderSchedule = () => map(this.props.timetable, (timetable, index) => (
-        <div key={index} className="Timetable__result">
+        <div
+            key={index}
+            className={classNames({
+                'Timetable__result': true,
+                '_current': !!timetable.isCurrent,
+            })}
+        >
             <div>
                 {timetable.image &&
                     <div className="Timetable__blockImage">
@@ -63,7 +69,7 @@ class Timetable extends React.PureComponent {
                         {timetable.tags && timetable.tags.map((tag, id) => (
                             <Chip
                                 key={id}
-                                label={tag.toUpperCase()}
+                                label={`#${tag.toUpperCase()}`}
                                 className={
                                     classNames({
                                         'Timetable__chip': true,
