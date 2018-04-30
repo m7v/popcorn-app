@@ -50,7 +50,7 @@ class Voting extends React.Component {
     };
 
     handleToggle = () => {
-        this.props.appSetVote(this.state.voteId, this.state.ticketCode);
+        this.props.appSetVote(this.state.voteId, this.state.ticketCode || this.props.ticketCode);
         this.setState({ isVoted: !this.state.isVoted });
     };
 

@@ -30,6 +30,10 @@ const menuItems = {
             name: 'Enter code',
             path: '/enter_code',
         },
+        {
+            name: 'Voting',
+            path: '/vote',
+        },
     ],
     ru: [
         {
@@ -47,6 +51,10 @@ const menuItems = {
         {
             name: 'Введите код',
             path: '/enter_code',
+        },
+        {
+            name: 'Голосование',
+            path: '/vote',
         },
     ]
 };
